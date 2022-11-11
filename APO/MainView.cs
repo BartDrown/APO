@@ -31,7 +31,7 @@ namespace APO {
 
         private void OpenImage_Click_1(object sender, EventArgs e) {
             OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp, *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
             DialogResult status = fileDialog.ShowDialog();
             if (status == DialogResult.OK) {
                 Image image = Image.FromFile(fileDialog.FileName);
@@ -92,6 +92,146 @@ namespace APO {
             imageService.imageView.Text = "copy";
             imagesList.Add(imageService);
             imageService.Show();
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void magnifyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void magnify25_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+            imageService.Show();
+        }
+
+        private void magnify25ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImageService child = this.getActiveChild();
+            HistogramService histogramService = new HistogramService(child);
+            histogramService.renderHistogram("Grayscale");
+        }
+
+        private void notToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addSaturatedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImageService child = this.getActiveChild();
+
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp, *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
+            DialogResult status = fileDialog.ShowDialog();
+            if (status == DialogResult.OK)
+            {
+                Image image = Image.FromFile(fileDialog.FileName);
+                Bitmap bitmap = new Bitmap(image);
+
+
+                ImageService newImageService = new ImageService(bitmap, fileDialog.FileName);
+                newImageService.Create();
+
+                Bitmap added = child.addImage(newImageService, 0);
+
+
+                ImageService imageService = new ImageService(added, fileDialog.FileName);
+
+                imageService.Create();
+                imageService.imageView.MdiParent = this;
+                imageService.imageView.Text = fileDialog.FileName;
+                imagesList.Add(imageService);
+                imageService.Show();
+            }
+
+
+        }
+
+        private void addNotSaturatedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImageService child = this.getActiveChild();
+
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp, *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
+            DialogResult status = fileDialog.ShowDialog();
+            if (status == DialogResult.OK)
+            {
+                Image image = Image.FromFile(fileDialog.FileName);
+                Bitmap bitmap = new Bitmap(image);
+
+
+                ImageService newImageService = new ImageService(bitmap, fileDialog.FileName);
+                newImageService.Create();
+
+                Bitmap added = child.addImage(newImageService, 1);
+
+
+                ImageService imageService = new ImageService(added, fileDialog.FileName);
+
+                imageService.Create();
+                imageService.imageView.MdiParent = this;
+                imageService.imageView.Text = fileDialog.FileName;
+                imagesList.Add(imageService);
+                imageService.Show();
+            }
+        }
+
+        private void substractAbsoluteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImageService child = this.getActiveChild();
+
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp, *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
+            DialogResult status = fileDialog.ShowDialog();
+            if (status == DialogResult.OK)
+            {
+                Image image = Image.FromFile(fileDialog.FileName);
+                Bitmap bitmap = new Bitmap(image);
+
+
+                ImageService newImageService = new ImageService(bitmap, fileDialog.FileName);
+                newImageService.Create();
+
+                Bitmap added = child.addImage(newImageService, 2);
+
+
+                ImageService imageService = new ImageService(added, fileDialog.FileName);
+
+                imageService.Create();
+                imageService.imageView.MdiParent = this;
+                imageService.imageView.Text = fileDialog.FileName;
+                imagesList.Add(imageService);
+                imageService.Show();
+            }
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Form testDialog = new Form(TextBox);
+
+            //// Show testDialog as a modal dialog and determine if DialogResult = OK.
+            //if (testDialog.ShowDialog(this) == DialogResult.OK)
+            //{
+            //    // Read the contents of testDialog's TextBox.
+            //    String value = testDialog.TextBox .Text;
+            //}
+            //else
+            //{
+            //    this.txtResult.Text = "Cancelled";
+            //}
+            //testDialog.Dispose();
         }
     }
 }
