@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
-
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace APO {
     public class ImageService {
@@ -255,6 +255,84 @@ namespace APO {
                         grayScale.SetPixel(x, y, c);
                     }
 
+                }
+            }
+            this.bitmap = grayScale;
+
+        }
+
+        public void TresholdEqualize(int treshold, int direction)
+        {
+            ImageService newImage = this;
+            Bitmap grayScale = new Bitmap(newImage.bitmap.Width, newImage.bitmap.Height);
+
+            for (Int32 y = 0; y < grayScale.Height; y++)
+            {
+                for (Int32 x = 0; x < grayScale.Width; x++)
+                {
+                    int grayValue = bitmap.GetPixel(x, y).G;
+                    if (grayValue < treshold)
+                    {
+                        if (direction == 1)
+                        {
+                            Color c = Color.FromArgb(treshold, treshold, treshold);
+                            grayScale.SetPixel(x, y, c);
+                        }
+                    }
+                    else
+                    {
+                        if (direction == 0)
+                        {
+                            Color c = Color.FromArgb(treshold, treshold, treshold);
+                            grayScale.SetPixel(x, y, c);
+                        }
+                    }
+
+                }
+            }
+            this.bitmap = grayScale;
+
+        }
+
+        public void TresholdDouble(int tresholdTop, int tresholdDown, int value ,int mode)
+        {
+            ImageService newImage = this;
+            Bitmap grayScale = new Bitmap(newImage.bitmap.Width, newImage.bitmap.Height);
+
+            for (Int32 y = 0; y < grayScale.Height; y++)
+            {
+                for (Int32 x = 0; x < grayScale.Width; x++)
+                {
+                    int grayValue = bitmap.GetPixel(x, y).G;
+                    switch (mode)
+                    {
+                        case 0:
+                            if (grayValue < tresholdDown || grayValue > tresholdDown)
+                            {
+                                Color c = Color.FromArgb(value, value, value);
+                                grayScale.SetPixel(x, y, c);
+                            }
+                            else
+                            {
+                                Color c = Color.FromArgb(grayValue, grayValue, grayValue);
+                                grayScale.SetPixel(x, y, c);
+
+                            }
+                            break;
+                        case 1:
+                            if (grayValue > tresholdDown && grayValue < tresholdDown)
+                            {
+                                Color c = Color.FromArgb(value, value, value);
+                                grayScale.SetPixel(x, y, c);
+                            }
+                            else
+                            {
+                                Color c = Color.FromArgb(grayValue, grayValue, grayValue);
+                                grayScale.SetPixel(x, y, c);
+                            }
+
+                            break;
+                    }
                 }
             }
             this.bitmap = grayScale;

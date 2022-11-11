@@ -33,12 +33,19 @@
             this.histogramRed = new System.Windows.Forms.ToolStripMenuItem();
             this.histogramGreen = new System.Windows.Forms.ToolStripMenuItem();
             this.histogramBlue = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.magnify25 = new System.Windows.Forms.ToolStripMenuItem();
             this.magnify50 = new System.Windows.Forms.ToolStripMenuItem();
             this.magnify150 = new System.Windows.Forms.ToolStripMenuItem();
             this.magnify200 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.singleArgumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.negationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.progToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.singleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.singleEqulizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.doubleEqualizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.multiargumemtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addSaturatedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNotSaturatedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,13 +59,6 @@
             this.aNDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xORToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.negationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.progToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.singleArgumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.singleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.singleEqulizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.doubleEqualizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,6 +135,13 @@
             resources.ApplyResources(this.histogramBlue, "histogramBlue");
             this.histogramBlue.Click += new System.EventHandler(this.blueToolStripMenuItem_Click);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // toolStripDropDownButton2
             // 
             this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -180,6 +187,48 @@
             resources.ApplyResources(this.toolStripDropDownButton3, "toolStripDropDownButton3");
             this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
             this.toolStripDropDownButton3.Click += new System.EventHandler(this.toolStripDropDownButton3_Click);
+            // 
+            // singleArgumentToolStripMenuItem
+            // 
+            this.singleArgumentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.negationToolStripMenuItem,
+            this.progToolStripMenuItem});
+            this.singleArgumentToolStripMenuItem.Name = "singleArgumentToolStripMenuItem";
+            resources.ApplyResources(this.singleArgumentToolStripMenuItem, "singleArgumentToolStripMenuItem");
+            // 
+            // negationToolStripMenuItem
+            // 
+            this.negationToolStripMenuItem.Name = "negationToolStripMenuItem";
+            resources.ApplyResources(this.negationToolStripMenuItem, "negationToolStripMenuItem");
+            this.negationToolStripMenuItem.Click += new System.EventHandler(this.negationToolStripMenuItem_Click);
+            // 
+            // progToolStripMenuItem
+            // 
+            this.progToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.singleToolStripMenuItem,
+            this.singleEqulizeToolStripMenuItem,
+            this.doubleEqualizeToolStripMenuItem});
+            this.progToolStripMenuItem.Name = "progToolStripMenuItem";
+            resources.ApplyResources(this.progToolStripMenuItem, "progToolStripMenuItem");
+            this.progToolStripMenuItem.Click += new System.EventHandler(this.progToolStripMenuItem_Click);
+            // 
+            // singleToolStripMenuItem
+            // 
+            this.singleToolStripMenuItem.Name = "singleToolStripMenuItem";
+            resources.ApplyResources(this.singleToolStripMenuItem, "singleToolStripMenuItem");
+            this.singleToolStripMenuItem.Click += new System.EventHandler(this.singleToolStripMenuItem_Click);
+            // 
+            // singleEqulizeToolStripMenuItem
+            // 
+            this.singleEqulizeToolStripMenuItem.Name = "singleEqulizeToolStripMenuItem";
+            resources.ApplyResources(this.singleEqulizeToolStripMenuItem, "singleEqulizeToolStripMenuItem");
+            this.singleEqulizeToolStripMenuItem.Click += new System.EventHandler(this.singleEqulizeToolStripMenuItem_Click);
+            // 
+            // doubleEqualizeToolStripMenuItem
+            // 
+            this.doubleEqualizeToolStripMenuItem.Name = "doubleEqualizeToolStripMenuItem";
+            resources.ApplyResources(this.doubleEqualizeToolStripMenuItem, "doubleEqualizeToolStripMenuItem");
+            this.doubleEqualizeToolStripMenuItem.Click += new System.EventHandler(this.doubleEqualizeToolStripMenuItem_Click);
             // 
             // multiargumemtToolStripMenuItem
             // 
@@ -264,53 +313,6 @@
             // 
             this.xORToolStripMenuItem.Name = "xORToolStripMenuItem";
             resources.ApplyResources(this.xORToolStripMenuItem, "xORToolStripMenuItem");
-            // 
-            // negationToolStripMenuItem
-            // 
-            this.negationToolStripMenuItem.Name = "negationToolStripMenuItem";
-            resources.ApplyResources(this.negationToolStripMenuItem, "negationToolStripMenuItem");
-            this.negationToolStripMenuItem.Click += new System.EventHandler(this.negationToolStripMenuItem_Click);
-            // 
-            // progToolStripMenuItem
-            // 
-            this.progToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.singleToolStripMenuItem,
-            this.singleEqulizeToolStripMenuItem,
-            this.doubleEqualizeToolStripMenuItem});
-            this.progToolStripMenuItem.Name = "progToolStripMenuItem";
-            resources.ApplyResources(this.progToolStripMenuItem, "progToolStripMenuItem");
-            this.progToolStripMenuItem.Click += new System.EventHandler(this.progToolStripMenuItem_Click);
-            // 
-            // singleArgumentToolStripMenuItem
-            // 
-            this.singleArgumentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.negationToolStripMenuItem,
-            this.progToolStripMenuItem});
-            this.singleArgumentToolStripMenuItem.Name = "singleArgumentToolStripMenuItem";
-            resources.ApplyResources(this.singleArgumentToolStripMenuItem, "singleArgumentToolStripMenuItem");
-            // 
-            // singleToolStripMenuItem
-            // 
-            this.singleToolStripMenuItem.Name = "singleToolStripMenuItem";
-            resources.ApplyResources(this.singleToolStripMenuItem, "singleToolStripMenuItem");
-            this.singleToolStripMenuItem.Click += new System.EventHandler(this.singleToolStripMenuItem_Click);
-            // 
-            // singleEqulizeToolStripMenuItem
-            // 
-            this.singleEqulizeToolStripMenuItem.Name = "singleEqulizeToolStripMenuItem";
-            resources.ApplyResources(this.singleEqulizeToolStripMenuItem, "singleEqulizeToolStripMenuItem");
-            // 
-            // doubleEqualizeToolStripMenuItem
-            // 
-            this.doubleEqualizeToolStripMenuItem.Name = "doubleEqualizeToolStripMenuItem";
-            resources.ApplyResources(this.doubleEqualizeToolStripMenuItem, "doubleEqualizeToolStripMenuItem");
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // MainView
             // 

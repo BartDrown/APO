@@ -502,31 +502,31 @@
     <value>toolStripButton1</value>
   </data>
   <data name="histogramGray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>136, 24</value>
   </data>
   <data name="histogramGray.Text" xml:space="preserve">
     <value>Grayscale</value>
   </data>
   <data name="histogramRed.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>136, 24</value>
   </data>
   <data name="histogramRed.Text" xml:space="preserve">
     <value>Red</value>
   </data>
   <data name="histogramGreen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>136, 24</value>
   </data>
   <data name="histogramGreen.Text" xml:space="preserve">
     <value>Green</value>
   </data>
   <data name="histogramBlue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>136, 24</value>
   </data>
   <data name="histogramBlue.Text" xml:space="preserve">
     <value>Blue</value>
   </data>
   <data name="histogramToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>142, 24</value>
   </data>
   <data name="histogramToolStripMenuItem.Text" xml:space="preserve">
     <value>Histogram</value>
@@ -786,25 +786,25 @@
     <value>toolStripButton1</value>
   </data>
   <data name="magnify25.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>113, 24</value>
   </data>
   <data name="magnify25.Text" xml:space="preserve">
     <value>25%</value>
   </data>
   <data name="magnify50.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>113, 24</value>
   </data>
   <data name="magnify50.Text" xml:space="preserve">
     <value>50%</value>
   </data>
   <data name="magnify150.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>113, 24</value>
   </data>
   <data name="magnify150.Text" xml:space="preserve">
     <value>150%</value>
   </data>
   <data name="magnify200.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>113, 24</value>
   </data>
   <data name="magnify200.Text" xml:space="preserve">
     <value>200%</value>
@@ -1394,6 +1394,12 @@
   <data name="&gt;&gt;histogramBlue.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripButton1.Name" xml:space="preserve">
+    <value>toolStripButton1</value>
+  </data>
+  <data name="&gt;&gt;toolStripButton1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolStripDropDownButton2.Name" xml:space="preserve">
     <value>toolStripDropDownButton2</value>
   </data>
@@ -1429,6 +1435,42 @@
   </data>
   <data name="&gt;&gt;toolStripDropDownButton3.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;singleArgumentToolStripMenuItem.Name" xml:space="preserve">
+    <value>singleArgumentToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;singleArgumentToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;negationToolStripMenuItem.Name" xml:space="preserve">
+    <value>negationToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;negationToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;progToolStripMenuItem.Name" xml:space="preserve">
+    <value>progToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;progToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;singleToolStripMenuItem.Name" xml:space="preserve">
+    <value>singleToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;singleToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;singleEqulizeToolStripMenuItem.Name" xml:space="preserve">
+    <value>singleEqulizeToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;singleEqulizeToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;doubleEqualizeToolStripMenuItem.Name" xml:space="preserve">
+    <value>doubleEqualizeToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;doubleEqualizeToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;multiargumemtToolStripMenuItem.Name" xml:space="preserve">
     <value>multiargumemtToolStripMenuItem</value>
@@ -1507,48 +1549,6 @@
   </data>
   <data name="&gt;&gt;xORToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;negationToolStripMenuItem.Name" xml:space="preserve">
-    <value>negationToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;negationToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;progToolStripMenuItem.Name" xml:space="preserve">
-    <value>progToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;progToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;singleArgumentToolStripMenuItem.Name" xml:space="preserve">
-    <value>singleArgumentToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;singleArgumentToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;singleToolStripMenuItem.Name" xml:space="preserve">
-    <value>singleToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;singleToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;singleEqulizeToolStripMenuItem.Name" xml:space="preserve">
-    <value>singleEqulizeToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;singleEqulizeToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;doubleEqualizeToolStripMenuItem.Name" xml:space="preserve">
-    <value>doubleEqualizeToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;doubleEqualizeToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripButton1.Name" xml:space="preserve">
-    <value>toolStripButton1</value>
-  </data>
-  <data name="&gt;&gt;toolStripButton1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainView</value>

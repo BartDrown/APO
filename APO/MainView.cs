@@ -335,9 +335,21 @@ namespace APO {
         {
            
 
-            Form form = new InputTreshold(getActiveChild().bitmap, this);
+            Form form = new InputTreshold(getActiveChild().bitmap, this, imagesList);
             form.Show();
 
+        }
+
+        private void singleEqulizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = new InputTresholdEqualize(getActiveChild().bitmap, this, imagesList);
+            form.Show();
+        }
+
+        private void doubleEqualizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = new InputTresholdDouble(getActiveChild().bitmap, this, imagesList);
+            form.Show();
         }
     }
 }
