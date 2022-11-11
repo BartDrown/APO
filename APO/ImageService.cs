@@ -214,5 +214,52 @@ namespace APO {
         }
 
 
+
+        public void Negate()
+        {
+            ImageService newImage = this;
+            Bitmap grayScale = new Bitmap(newImage.bitmap.Width, newImage.bitmap.Height);
+
+            for (Int32 y = 0; y < grayScale.Height; y++)
+            {
+                for (Int32 x = 0; x < grayScale.Width; x++)
+                {
+
+                    int newColor = 255 - bitmap.GetPixel(x, y).G;
+                    Color c = Color.FromArgb(newColor, newColor, newColor);
+                    grayScale.SetPixel(x, y, c);
+                }
+            }
+            this.bitmap = grayScale;
+
+        }
+
+        public void Treshold(int treshold)
+        {
+            ImageService newImage = this;
+            Bitmap grayScale = new Bitmap(newImage.bitmap.Width, newImage.bitmap.Height);
+
+            for (Int32 y = 0; y < grayScale.Height; y++)
+            {
+                for (Int32 x = 0; x < grayScale.Width; x++)
+                {
+                    int grayValue = bitmap.GetPixel(x, y).G;
+                    if ( grayValue < treshold)
+                    {
+                        Color c = Color.FromArgb(0, 0, 0);
+                        grayScale.SetPixel(x, y, c);
+                    }
+                    else
+                    {
+                        Color c = Color.FromArgb(255, 255, 255);
+                        grayScale.SetPixel(x, y, c);
+                    }
+
+                }
+            }
+            this.bitmap = grayScale;
+
+        }
+
     }
 }

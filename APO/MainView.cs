@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using MetroFramework.Forms;
+
 namespace APO {
     public partial class MainView : Form {
         List<ImageService> imagesList = new List<ImageService>();
@@ -107,7 +108,9 @@ namespace APO {
         private void magnify25_Click(object sender, EventArgs e)
         {
             Image image = getActiveChild().bitmap;
-            Bitmap bitmap = new Bitmap(image);
+            Bitmap originalBitmap = new Bitmap(image);
+            Size newSize = new Size((int)(originalBitmap.Width / 4), (int)(originalBitmap.Height / 4));
+            Bitmap bitmap = new Bitmap(originalBitmap, newSize);
             ImageService imageService = new ImageService(bitmap, "copy");
             imageService.Create();
             imageService.imageView.MdiParent = this;
@@ -115,6 +118,49 @@ namespace APO {
             imagesList.Add(imageService);
             imageService.Show();
         }
+
+        private void magnify50_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap originalBitmap = new Bitmap(image);
+            Size newSize = new Size((int)(originalBitmap.Width / 2), (int)(originalBitmap.Height / 2));
+            Bitmap bitmap = new Bitmap(originalBitmap, newSize);
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+            imageService.Show();
+        }
+
+        private void magnify150_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap originalBitmap = new Bitmap(image);
+            Size newSize = new Size((int)(originalBitmap.Width * 1.5), (int)(originalBitmap.Height * 1.5));
+            Bitmap bitmap = new Bitmap(originalBitmap, newSize);
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+            imageService.Show();
+        }
+
+        private void magnify200_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap originalBitmap = new Bitmap(image);
+            Size newSize = new Size((int)(originalBitmap.Width * 2), (int)(originalBitmap.Height * 2));
+            Bitmap bitmap = new Bitmap(originalBitmap, newSize);
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+            imageService.Show();
+        }
+
 
         private void magnify25ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -227,11 +273,71 @@ namespace APO {
             //    // Read the contents of testDialog's TextBox.
             //    String value = testDialog.TextBox .Text;
             //}
-            //else
+            //elsew
             //{
             //    this.txtResult.Text = "Cancelled";
             //}
             //testDialog.Dispose();
+        }
+
+        private void toolStripDropDownButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void progToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            Bitmap grayScale = new Bitmap(image.Width, image.Height);
+
+            for (Int32 y = 0; y < grayScale.Height; y++)
+            {
+                for (Int32 x = 0; x < grayScale.Width; x++)
+                {
+                    Color c = bitmap.GetPixel(x, y);
+
+                    Int32 gs = (Int32)(c.R * 0.3 + c.G * 0.59 + c.B * 0.11);
+
+                    grayScale.SetPixel(x, y, Color.FromArgb(gs, gs, gs));
+                }
+            }
+            ImageService imageService = new ImageService(grayScale, "copy");
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+            imageService.Show();
+        }
+
+        private void negationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.Negate();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void singleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+
+            Form form = new InputTreshold(getActiveChild().bitmap, this);
+            form.Show();
+
         }
     }
 }

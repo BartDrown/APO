@@ -27,14 +27,20 @@ namespace APO {
             );
 
             
-            Size = new Size(bitmap.Width, bitmap.Height);
+            Size = new Size(bitmap.Width, bitmap.Height + 40);
             imageBox.Image = bitmap;
 
 
         }
 
+        private void imageBox_Click(object sender, EventArgs e)
+        {
 
+        }
 
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
 
+        }
     }
 }

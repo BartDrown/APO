@@ -43,15 +43,22 @@
             this.addSaturatedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNotSaturatedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.substractAbsoluteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.divideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.multiplyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.binaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aNDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xORToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.divideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.multiplyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.negationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.progToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.singleArgumentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.singleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.singleEqulizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.doubleEqualizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +70,7 @@
             this.OpenImage,
             this.duplicate,
             this.toolStripDropDownButton1,
+            this.toolStripButton1,
             this.toolStripDropDownButton2,
             this.toolStripDropDownButton3});
             this.toolStrip1.Name = "toolStrip1";
@@ -148,25 +156,30 @@
             // 
             this.magnify50.Name = "magnify50";
             resources.ApplyResources(this.magnify50, "magnify50");
+            this.magnify50.Click += new System.EventHandler(this.magnify50_Click);
             // 
             // magnify150
             // 
             this.magnify150.Name = "magnify150";
             resources.ApplyResources(this.magnify150, "magnify150");
+            this.magnify150.Click += new System.EventHandler(this.magnify150_Click);
             // 
             // magnify200
             // 
             this.magnify200.Name = "magnify200";
             resources.ApplyResources(this.magnify200, "magnify200");
+            this.magnify200.Click += new System.EventHandler(this.magnify200_Click);
             // 
             // toolStripDropDownButton3
             // 
             this.toolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.singleArgumentToolStripMenuItem,
             this.multiargumemtToolStripMenuItem,
             this.binaryToolStripMenuItem});
             resources.ApplyResources(this.toolStripDropDownButton3, "toolStripDropDownButton3");
             this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
+            this.toolStripDropDownButton3.Click += new System.EventHandler(this.toolStripDropDownButton3_Click);
             // 
             // multiargumemtToolStripMenuItem
             // 
@@ -195,6 +208,31 @@
             this.substractAbsoluteToolStripMenuItem.Name = "substractAbsoluteToolStripMenuItem";
             resources.ApplyResources(this.substractAbsoluteToolStripMenuItem, "substractAbsoluteToolStripMenuItem");
             this.substractAbsoluteToolStripMenuItem.Click += new System.EventHandler(this.substractAbsoluteToolStripMenuItem_Click);
+            // 
+            // mathToolStripMenuItem
+            // 
+            this.mathToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToolStripMenuItem,
+            this.divideToolStripMenuItem,
+            this.multiplyToolStripMenuItem});
+            this.mathToolStripMenuItem.Name = "mathToolStripMenuItem";
+            resources.ApplyResources(this.mathToolStripMenuItem, "mathToolStripMenuItem");
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            resources.ApplyResources(this.addToolStripMenuItem, "addToolStripMenuItem");
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            // 
+            // divideToolStripMenuItem
+            // 
+            this.divideToolStripMenuItem.Name = "divideToolStripMenuItem";
+            resources.ApplyResources(this.divideToolStripMenuItem, "divideToolStripMenuItem");
+            // 
+            // multiplyToolStripMenuItem
+            // 
+            this.multiplyToolStripMenuItem.Name = "multiplyToolStripMenuItem";
+            resources.ApplyResources(this.multiplyToolStripMenuItem, "multiplyToolStripMenuItem");
             // 
             // binaryToolStripMenuItem
             // 
@@ -227,30 +265,52 @@
             this.xORToolStripMenuItem.Name = "xORToolStripMenuItem";
             resources.ApplyResources(this.xORToolStripMenuItem, "xORToolStripMenuItem");
             // 
-            // mathToolStripMenuItem
+            // negationToolStripMenuItem
             // 
-            this.mathToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addToolStripMenuItem,
-            this.divideToolStripMenuItem,
-            this.multiplyToolStripMenuItem});
-            this.mathToolStripMenuItem.Name = "mathToolStripMenuItem";
-            resources.ApplyResources(this.mathToolStripMenuItem, "mathToolStripMenuItem");
+            this.negationToolStripMenuItem.Name = "negationToolStripMenuItem";
+            resources.ApplyResources(this.negationToolStripMenuItem, "negationToolStripMenuItem");
+            this.negationToolStripMenuItem.Click += new System.EventHandler(this.negationToolStripMenuItem_Click);
             // 
-            // addToolStripMenuItem
+            // progToolStripMenuItem
             // 
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            resources.ApplyResources(this.addToolStripMenuItem, "addToolStripMenuItem");
-            this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
+            this.progToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.singleToolStripMenuItem,
+            this.singleEqulizeToolStripMenuItem,
+            this.doubleEqualizeToolStripMenuItem});
+            this.progToolStripMenuItem.Name = "progToolStripMenuItem";
+            resources.ApplyResources(this.progToolStripMenuItem, "progToolStripMenuItem");
+            this.progToolStripMenuItem.Click += new System.EventHandler(this.progToolStripMenuItem_Click);
             // 
-            // divideToolStripMenuItem
+            // singleArgumentToolStripMenuItem
             // 
-            this.divideToolStripMenuItem.Name = "divideToolStripMenuItem";
-            resources.ApplyResources(this.divideToolStripMenuItem, "divideToolStripMenuItem");
+            this.singleArgumentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.negationToolStripMenuItem,
+            this.progToolStripMenuItem});
+            this.singleArgumentToolStripMenuItem.Name = "singleArgumentToolStripMenuItem";
+            resources.ApplyResources(this.singleArgumentToolStripMenuItem, "singleArgumentToolStripMenuItem");
             // 
-            // multiplyToolStripMenuItem
+            // singleToolStripMenuItem
             // 
-            this.multiplyToolStripMenuItem.Name = "multiplyToolStripMenuItem";
-            resources.ApplyResources(this.multiplyToolStripMenuItem, "multiplyToolStripMenuItem");
+            this.singleToolStripMenuItem.Name = "singleToolStripMenuItem";
+            resources.ApplyResources(this.singleToolStripMenuItem, "singleToolStripMenuItem");
+            this.singleToolStripMenuItem.Click += new System.EventHandler(this.singleToolStripMenuItem_Click);
+            // 
+            // singleEqulizeToolStripMenuItem
+            // 
+            this.singleEqulizeToolStripMenuItem.Name = "singleEqulizeToolStripMenuItem";
+            resources.ApplyResources(this.singleEqulizeToolStripMenuItem, "singleEqulizeToolStripMenuItem");
+            // 
+            // doubleEqualizeToolStripMenuItem
+            // 
+            this.doubleEqualizeToolStripMenuItem.Name = "doubleEqualizeToolStripMenuItem";
+            resources.ApplyResources(this.doubleEqualizeToolStripMenuItem, "doubleEqualizeToolStripMenuItem");
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // MainView
             // 
@@ -297,6 +357,13 @@
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem divideToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem multiplyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripMenuItem singleArgumentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem negationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem progToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem singleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem singleEqulizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem doubleEqualizeToolStripMenuItem;
     }
 }
 
