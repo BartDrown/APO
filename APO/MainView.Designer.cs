@@ -68,6 +68,23 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.n9nToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.edgeDetectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.laplaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cannyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.edgeSobelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.medianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.x3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.x5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.x7ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -329,7 +346,10 @@
             this.toolStripDropDownButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripDropDownButton4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.blurToolStripMenuItem,
-            this.sharpenToolStripMenuItem});
+            this.sharpenToolStripMenuItem,
+            this.edgeDetectionToolStripMenuItem,
+            this.edgeSobelToolStripMenuItem,
+            this.medianToolStripMenuItem});
             resources.ApplyResources(this.toolStripDropDownButton4, "toolStripDropDownButton4");
             this.toolStripDropDownButton4.Name = "toolStripDropDownButton4";
             // 
@@ -386,6 +406,122 @@
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             resources.ApplyResources(this.toolStripMenuItem3, "toolStripMenuItem3");
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // edgeDetectionToolStripMenuItem
+            // 
+            this.edgeDetectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sobelToolStripMenuItem,
+            this.laplaceToolStripMenuItem,
+            this.cannyToolStripMenuItem});
+            this.edgeDetectionToolStripMenuItem.Name = "edgeDetectionToolStripMenuItem";
+            resources.ApplyResources(this.edgeDetectionToolStripMenuItem, "edgeDetectionToolStripMenuItem");
+            // 
+            // sobelToolStripMenuItem
+            // 
+            this.sobelToolStripMenuItem.Name = "sobelToolStripMenuItem";
+            resources.ApplyResources(this.sobelToolStripMenuItem, "sobelToolStripMenuItem");
+            this.sobelToolStripMenuItem.Click += new System.EventHandler(this.sobelToolStripMenuItem_Click);
+            // 
+            // laplaceToolStripMenuItem
+            // 
+            this.laplaceToolStripMenuItem.Name = "laplaceToolStripMenuItem";
+            resources.ApplyResources(this.laplaceToolStripMenuItem, "laplaceToolStripMenuItem");
+            this.laplaceToolStripMenuItem.Click += new System.EventHandler(this.laplaceToolStripMenuItem_Click);
+            // 
+            // cannyToolStripMenuItem
+            // 
+            this.cannyToolStripMenuItem.Name = "cannyToolStripMenuItem";
+            resources.ApplyResources(this.cannyToolStripMenuItem, "cannyToolStripMenuItem");
+            this.cannyToolStripMenuItem.Click += new System.EventHandler(this.cannyToolStripMenuItem_Click);
+            // 
+            // edgeSobelToolStripMenuItem
+            // 
+            this.edgeSobelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nToolStripMenuItem,
+            this.nEToolStripMenuItem,
+            this.eToolStripMenuItem,
+            this.sEToolStripMenuItem,
+            this.sToolStripMenuItem,
+            this.sWToolStripMenuItem,
+            this.wToolStripMenuItem,
+            this.nWToolStripMenuItem});
+            this.edgeSobelToolStripMenuItem.Name = "edgeSobelToolStripMenuItem";
+            resources.ApplyResources(this.edgeSobelToolStripMenuItem, "edgeSobelToolStripMenuItem");
+            // 
+            // nToolStripMenuItem
+            // 
+            this.nToolStripMenuItem.Name = "nToolStripMenuItem";
+            resources.ApplyResources(this.nToolStripMenuItem, "nToolStripMenuItem");
+            this.nToolStripMenuItem.Click += new System.EventHandler(this.nToolStripMenuItem_Click);
+            // 
+            // nEToolStripMenuItem
+            // 
+            this.nEToolStripMenuItem.Name = "nEToolStripMenuItem";
+            resources.ApplyResources(this.nEToolStripMenuItem, "nEToolStripMenuItem");
+            this.nEToolStripMenuItem.Click += new System.EventHandler(this.nEToolStripMenuItem_Click);
+            // 
+            // eToolStripMenuItem
+            // 
+            this.eToolStripMenuItem.Name = "eToolStripMenuItem";
+            resources.ApplyResources(this.eToolStripMenuItem, "eToolStripMenuItem");
+            this.eToolStripMenuItem.Click += new System.EventHandler(this.eToolStripMenuItem_Click);
+            // 
+            // sEToolStripMenuItem
+            // 
+            this.sEToolStripMenuItem.Name = "sEToolStripMenuItem";
+            resources.ApplyResources(this.sEToolStripMenuItem, "sEToolStripMenuItem");
+            this.sEToolStripMenuItem.Click += new System.EventHandler(this.sEToolStripMenuItem_Click);
+            // 
+            // sToolStripMenuItem
+            // 
+            this.sToolStripMenuItem.Name = "sToolStripMenuItem";
+            resources.ApplyResources(this.sToolStripMenuItem, "sToolStripMenuItem");
+            this.sToolStripMenuItem.Click += new System.EventHandler(this.sToolStripMenuItem_Click);
+            // 
+            // sWToolStripMenuItem
+            // 
+            this.sWToolStripMenuItem.Name = "sWToolStripMenuItem";
+            resources.ApplyResources(this.sWToolStripMenuItem, "sWToolStripMenuItem");
+            this.sWToolStripMenuItem.Click += new System.EventHandler(this.sWToolStripMenuItem_Click);
+            // 
+            // wToolStripMenuItem
+            // 
+            this.wToolStripMenuItem.Name = "wToolStripMenuItem";
+            resources.ApplyResources(this.wToolStripMenuItem, "wToolStripMenuItem");
+            this.wToolStripMenuItem.Click += new System.EventHandler(this.wToolStripMenuItem_Click);
+            // 
+            // nWToolStripMenuItem
+            // 
+            this.nWToolStripMenuItem.Name = "nWToolStripMenuItem";
+            resources.ApplyResources(this.nWToolStripMenuItem, "nWToolStripMenuItem");
+            this.nWToolStripMenuItem.Click += new System.EventHandler(this.nWToolStripMenuItem_Click);
+            // 
+            // medianToolStripMenuItem
+            // 
+            this.medianToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.x3ToolStripMenuItem,
+            this.x5ToolStripMenuItem,
+            this.x7ToolStripMenuItem});
+            this.medianToolStripMenuItem.Name = "medianToolStripMenuItem";
+            resources.ApplyResources(this.medianToolStripMenuItem, "medianToolStripMenuItem");
+            // 
+            // x3ToolStripMenuItem
+            // 
+            this.x3ToolStripMenuItem.Name = "x3ToolStripMenuItem";
+            resources.ApplyResources(this.x3ToolStripMenuItem, "x3ToolStripMenuItem");
+            this.x3ToolStripMenuItem.Click += new System.EventHandler(this.x3ToolStripMenuItem_Click);
+            // 
+            // x5ToolStripMenuItem
+            // 
+            this.x5ToolStripMenuItem.Name = "x5ToolStripMenuItem";
+            resources.ApplyResources(this.x5ToolStripMenuItem, "x5ToolStripMenuItem");
+            this.x5ToolStripMenuItem.Click += new System.EventHandler(this.x5ToolStripMenuItem_Click);
+            // 
+            // x7ToolStripMenuItem
+            // 
+            this.x7ToolStripMenuItem.Name = "x7ToolStripMenuItem";
+            resources.ApplyResources(this.x7ToolStripMenuItem, "x7ToolStripMenuItem");
+            this.x7ToolStripMenuItem.Click += new System.EventHandler(this.x7ToolStripMenuItem_Click);
             // 
             // MainView
             // 
@@ -448,6 +584,23 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem n9nToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem edgeDetectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sobelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem laplaceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cannyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem edgeSobelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sWToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nWToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem medianToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem x3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem x5ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem x7ToolStripMenuItem;
     }
 }
 

@@ -441,5 +441,215 @@ namespace APO {
 
             imageService.Show();
         }
+
+        private void sobelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.sobelEdge();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void laplaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.laplaceEdge();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void cannyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.cannyEdge();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void nToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.sobelN();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void nEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.sobelNE();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void eToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.sobelE();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void sEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.sobelSE();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void sToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.sobelS();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void sWToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.sobelSW();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void wToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.sobelW();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void nWToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.sobelNW();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void x3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.median3x3 ();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void x5ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.median5x5();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void x7ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.median7x7();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
     }
 }

@@ -347,7 +347,7 @@ namespace APO {
             
             int[,] blur_matrix = { { 1, 1, 1 }, { 1, 1, 1 }, { 1, 1, 1 } };
 
-            //Bitmap temp_btm = new Bitmap(image.getWidth(), image.getHeight());
+            //Bitmap temp_btm = new Bitmap(image.Width, image.Height);
 
             for (int i = 1; i < image.Height - 2; ++i)
             {
@@ -400,7 +400,7 @@ namespace APO {
                 return val;
             }
 
-            //Bitmap temp_btm = new Bitmap(image.getWidth(), image.getHeight());
+            //Bitmap temp_btm = new Bitmap(image.Width, image.Height);
 
             for (int i = 2; i < image.Height - 4; ++i)
             {
@@ -435,7 +435,7 @@ namespace APO {
 
             int[,] blur_matrix = { { 1, 1, 1 }, { 1, 9, 1 }, { 1, 1, 1 } };
 
-            //Bitmap temp_btm = new Bitmap(image.getWidth(), image.getHeight());
+            //Bitmap temp_btm = new Bitmap(image.Width, image.Height);
 
             for (int i = 1; i < image.Height - 2; ++i)
             {
@@ -470,7 +470,7 @@ namespace APO {
 
             Bitmap image = this.bitmap;
 
-            //Bitmap temp_btm = new Bitmap(image.getWidth(), image.getHeight());
+            //Bitmap temp_btm = new Bitmap(image.Width, image.Height);
 
             for (int i = 1; i < image.Height - 2; ++i)
             {
@@ -504,7 +504,7 @@ namespace APO {
             Bitmap image = this.bitmap;
 
 
-            //Bitmap temp_btm = new Bitmap(image.getWidth(), image.getHeight());
+            //Bitmap temp_btm = new Bitmap(image.Width, image.Height);
 
             for (int i = 1; i < image.Height - 2; ++i)
             {
@@ -536,7 +536,7 @@ namespace APO {
 
             int[,] blur_matrix_1_5_1 = { { 1, -2, 1 }, { -2, 5, -2 }, { 1, -2, 1 } };
 
-            //Bitmap temp_btm = new Bitmap(image.getWidth(), image.getHeight());
+            //Bitmap temp_btm = new Bitmap(image.Width, image.Height);
 
             for (int i = 1; i < image.Height - 2; ++i)
             {
@@ -563,6 +563,567 @@ namespace APO {
             }
         }
 
+        public void laplaceEdge()
+        {
+            Bitmap image = this.bitmap;
+
+            int[,] laplac_x_kernel = { { 0, -1, 0 }, { -1, 4, -1 }, { 0, -1, 0 } };
+            int[,] laplace_y_kernel = { { -1, -1, -1 }, { -1, 8, -1 }, { -1, -1, -1 } };
+            Bitmap temp_btm = new Bitmap(image.Width, image.Height);
+
+            for (int i = 1; i < image.Height - 2; ++i)
+            {
+
+                for (int j = 1; j < image.Width - 2; ++j)
+                {
+
+                    //var greenpixel = image.GetPixel(j, i).R;
+
+
+                    var s1x = image.GetPixel(j, i).R * laplac_x_kernel[0, 0]; var s2x = image.GetPixel(j + 1, i).R * laplac_x_kernel[0, 1]; var s3x = image.GetPixel(j + 2, i).R * laplac_x_kernel[0, 2];
+                    var s4x = image.GetPixel(j, i + 1).R * laplac_x_kernel[1, 0]; var s5x = image.GetPixel(j + 1, i + 1).R * laplac_x_kernel[1, 1]; var s6x = image.GetPixel(j + 2, i + 1).R * laplac_x_kernel[1, 2];
+                    var s7x = image.GetPixel(j, i + 2).R * laplac_x_kernel[2, 0]; var s8x = image.GetPixel(j + 1, i + 2).R * laplac_x_kernel[2, 1]; var s9x = image.GetPixel(j + 2, i + 2).R * laplac_x_kernel[2, 2];
+
+                    var s1y = image.GetPixel(j, i).R * laplace_y_kernel[0, 0]; var s2y = image.GetPixel(j + 1, i).R * laplace_y_kernel[0, 1]; var s3y = image.GetPixel(j + 2, i).R * laplace_y_kernel[0, 2];
+                    var s4y = image.GetPixel(j, i + 1).R * laplace_y_kernel[1, 0]; var s5y = image.GetPixel(j + 1, i + 1).R * laplace_y_kernel[1, 1]; var s6y = image.GetPixel(j + 2, i + 1).R * laplace_y_kernel[1, 2];
+                    var s7y = image.GetPixel(j, i + 2).R * laplace_y_kernel[2, 0]; var s8y = image.GetPixel(j + 1, i + 2).R * laplace_y_kernel[2, 1]; var s9y = image.GetPixel(j + 2, i + 2).R * laplace_y_kernel[2, 2];
+
+                    var sum_1 = s1x + s2x + s3x + s4x + s5x + s6x + s7x + s8x + s9x;
+                    var sum_2 = s1y + s2y + s3y + s4y + s5y + s6y + s7y + s8y + s9y;
+
+                    //var final_sum = sum_1 + sum_2;
+                    var final_sum = (int)Math.Sqrt(sum_1 * sum_1 + sum_2 * sum_2);
+                    if (final_sum < 0) final_sum = 0;
+                    if (final_sum > 255) final_sum = 255;
+
+                    image.SetPixel(j, i, Color.FromArgb(255, final_sum, final_sum, final_sum));
+                }
+            }
+        }
+
+
+        public void cannyEdge()
+        {
+            Bitmap image = this.bitmap;
+
+            int[,] laplac_x_kernel = { { -1, 0, 1 }, { -2, 0, 2 }, { -1, 0, 1 } };
+            int[,] laplace_y_kernel = { { 1, 2, 1 }, { 0, 0, 0 }, { -1, -2, -1 } };
+            Bitmap temp_btm = new Bitmap(image.Width, image.Height);
+
+            for (int i = 1; i < image.Height - 2; ++i)
+            {
+
+                for (int j = 1; j < image.Width - 2; ++j)
+                {
+
+                    //var greenpixel = image.GetPixel(j, i).R;
+
+
+                    var s1x = image.GetPixel(j, i).R * laplac_x_kernel[0, 0]; var s2x = image.GetPixel(j + 1, i).R * laplac_x_kernel[0, 1]; var s3x = image.GetPixel(j + 2, i).R * laplac_x_kernel[0, 2];
+                    var s4x = image.GetPixel(j, i + 1).R * laplac_x_kernel[1, 0]; var s5x = image.GetPixel(j + 1, i + 1).R * laplac_x_kernel[1, 1]; var s6x = image.GetPixel(j + 2, i + 1).R * laplac_x_kernel[1, 2];
+                    var s7x = image.GetPixel(j, i + 2).R * laplac_x_kernel[2, 0]; var s8x = image.GetPixel(j + 1, i + 2).R * laplac_x_kernel[2, 1]; var s9x = image.GetPixel(j + 2, i + 2).R * laplac_x_kernel[2, 2];
+
+                    var s1y = image.GetPixel(j, i).R * laplace_y_kernel[0, 0]; var s2y = image.GetPixel(j + 1, i).R * laplace_y_kernel[0, 1]; var s3y = image.GetPixel(j + 2, i).R * laplace_y_kernel[0, 2];
+                    var s4y = image.GetPixel(j, i + 1).R * laplace_y_kernel[1, 0]; var s5y = image.GetPixel(j + 1, i + 1).R * laplace_y_kernel[1, 1]; var s6y = image.GetPixel(j + 2, i + 1).R * laplace_y_kernel[1, 2];
+                    var s7y = image.GetPixel(j, i + 2).R * laplace_y_kernel[2, 0]; var s8y = image.GetPixel(j + 1, i + 2).R * laplace_y_kernel[2, 1]; var s9y = image.GetPixel(j + 2, i + 2).R * laplace_y_kernel[2, 2];
+
+                    var sum_1 = s1x + s2x + s3x + s4x + s5x + s6x + s7x + s8x + s9x;
+                    var sum_2 = s1y + s2y + s3y + s4y + s5y + s6y + s7y + s8y + s9y;
+
+                    //var final_sum = sum_1 + sum_2;
+                    var final_sum = (int)Math.Sqrt(sum_1 * sum_1 + sum_2 * sum_2);
+                    if (final_sum < 0) final_sum = 0;
+                    if (final_sum > 255) final_sum = 255;
+
+                    image.SetPixel(j, i, Color.FromArgb(255, final_sum, final_sum, final_sum));
+                }
+            }
+
+
+        }
+
+
+
+
+        public void sobelEdge()
+        {
+            Bitmap image = this.bitmap;
+
+            int[,] sobel_x_kernel = { { -1, 0, 1 }, { -2, 0, 2 }, { -1, 0, 1 } };
+            int[,] sobel_y_kernel = { { 1, 2, 1 }, { 0, 0, 0 }, { -1, -2, -1 } };
+            Bitmap temp_btm = new Bitmap(image.Width, image.Height);
+
+            for (int i = 1; i < image.Height - 2; ++i)
+            {
+
+                for (int j = 1; j < image.Width - 2; ++j)
+                {
+                    var s1 = image.GetPixel(j, i).R * sobel_x_kernel[0, 0]; var s2 = image.GetPixel(j + 1, i).R * sobel_x_kernel[0, 1]; var s3 = image.GetPixel(j + 2, i).R * sobel_x_kernel[0, 2];
+                    var s4 = image.GetPixel(j, i + 1).R * sobel_x_kernel[1, 0]; var s5 = image.GetPixel(j + 1, i + 1).R * sobel_x_kernel[1, 1]; var s6 = image.GetPixel(j + 2, i + 1).R * sobel_x_kernel[1, 2];
+                    var s7 = image.GetPixel(j, i + 2).R * sobel_x_kernel[2, 0]; var s8 = image.GetPixel(j + 1, i + 2).R * sobel_x_kernel[2, 1]; var s9 = image.GetPixel(j + 2, i + 2).R * sobel_x_kernel[2, 2];
+
+                    var sum_1 = s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9;
+
+                    //var final_sum = sum_1;
+                    if (sum_1 < 0) sum_1 = 0;
+                    if (sum_1 > 255) sum_1 = 255;
+
+                    temp_btm.SetPixel(j, i, Color.FromArgb(255, sum_1, sum_1, sum_1));
+                }
+            }
+            for (int i = 1; i < image.Height - 2; ++i)
+            {
+
+                for (int j = 1; j < image.Width - 2; ++j)
+                {
+                    var s1 = image.GetPixel(j, i).R * sobel_y_kernel[0, 0]; var s2 = image.GetPixel(j + 1, i).R * sobel_y_kernel[0, 1]; var s3 = image.GetPixel(j + 2, i).R * sobel_y_kernel[0, 2];
+                    var s4 = image.GetPixel(j, i + 1).R * sobel_y_kernel[1, 0]; var s5 = image.GetPixel(j + 1, i + 1).R * sobel_y_kernel[1, 1]; var s6 = image.GetPixel(j + 2, i + 1).R * sobel_y_kernel[1, 2];
+                    var s7 = image.GetPixel(j, i + 2).R * sobel_y_kernel[2, 0]; var s8 = image.GetPixel(j + 1, i + 2).R * sobel_y_kernel[2, 1]; var s9 = image.GetPixel(j + 2, i + 2).R * sobel_y_kernel[2, 2];
+
+
+                    var sum_1 = s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9;
+                    //var final_sum = sum_1;
+                    if (sum_1 < 0) sum_1 = 0;
+                    if (sum_1 > 255) sum_1 = 255;
+
+                    image.SetPixel(j, i, Color.FromArgb(255, sum_1, sum_1, sum_1));
+                }
+            }
+        }
+
+        public void sobelE()
+        {
+            int[,] blur_matrix_0_5_0 = { { -1, 0, 1 }, { -2, 0, 2 }, { -1, 0, 1 } };
+                
+            Bitmap image = this.bitmap;
+
+            //Bitmap temp_btm = new Bitmap(image.Width, image.Height);
+
+            for (int i = 1; i < image.Height - 2; ++i)
+            {
+
+                for (int j = 1; j < image.Width - 2; ++j)
+                {
+
+                    //var greenpixel = image.GetPixel(j, i).R;
+
+
+                    var s1 = image.GetPixel(j, i).R * blur_matrix_0_5_0[0, 0]; var s2 = image.GetPixel(j + 1, i).R * blur_matrix_0_5_0[0, 1]; var s3 = image.GetPixel(j + 2, i).R * blur_matrix_0_5_0[0, 2];
+                    var s4 = image.GetPixel(j, i + 1).R * blur_matrix_0_5_0[1, 0]; var s5 = image.GetPixel(j + 1, i + 1).R * blur_matrix_0_5_0[1, 1]; var s6 = image.GetPixel(j + 2, i + 1).R * blur_matrix_0_5_0[1, 2];
+                    var s7 = image.GetPixel(j, i + 2).R * blur_matrix_0_5_0[2, 0]; var s8 = image.GetPixel(j + 1, i + 2).R * blur_matrix_0_5_0[2, 1]; var s9 = image.GetPixel(j + 2, i + 2).R * blur_matrix_0_5_0[2, 2];
+
+                    var sum_1 = (int)(s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9) / 1;
+                    if (sum_1 > 255) sum_1 = 255;
+                    if (sum_1 < 0) sum_1 = 0;
+
+                    //var final_sum = sum_1 + sum_2;
+
+
+
+                    image.SetPixel(j, i, Color.FromArgb(255, sum_1, sum_1, sum_1));
+                }
+            }
+
+        }
+        public void sobelW()
+        {
+            int[,] blur_matrix_0_5_0 = { { 1, 0, -1 }, { 2, 0, -2 }, { 1, 0, -1 } };
+
+            Bitmap image = this.bitmap;
+
+            //Bitmap temp_btm = new Bitmap(image.Width, image.Height);
+
+            for (int i = 1; i < image.Height - 2; ++i)
+            {
+
+                for (int j = 1; j < image.Width - 2; ++j)
+                {
+
+                    //var greenpixel = image.GetPixel(j, i).R;
+
+
+                    var s1 = image.GetPixel(j, i).R * blur_matrix_0_5_0[0, 0]; var s2 = image.GetPixel(j + 1, i).R * blur_matrix_0_5_0[0, 1]; var s3 = image.GetPixel(j + 2, i).R * blur_matrix_0_5_0[0, 2];
+                    var s4 = image.GetPixel(j, i + 1).R * blur_matrix_0_5_0[1, 0]; var s5 = image.GetPixel(j + 1, i + 1).R * blur_matrix_0_5_0[1, 1]; var s6 = image.GetPixel(j + 2, i + 1).R * blur_matrix_0_5_0[1, 2];
+                    var s7 = image.GetPixel(j, i + 2).R * blur_matrix_0_5_0[2, 0]; var s8 = image.GetPixel(j + 1, i + 2).R * blur_matrix_0_5_0[2, 1]; var s9 = image.GetPixel(j + 2, i + 2).R * blur_matrix_0_5_0[2, 2];
+
+                    var sum_1 = (int)(s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9) / 1;
+                    if (sum_1 > 255) sum_1 = 255;
+                    if (sum_1 < 0) sum_1 = 0;
+
+                    //var final_sum = sum_1 + sum_2;
+
+
+
+                    image.SetPixel(j, i, Color.FromArgb(255, sum_1, sum_1, sum_1));
+                }
+            }
+
+        }
+
+        public void sobelNE()
+        {
+            int[,] blur_matrix_0_5_0 = { { 0, 1, 2 }, { -1, 0, 1 }, { -2, -1, 0 } };
+
+            Bitmap image = this.bitmap;
+
+            //Bitmap temp_btm = new Bitmap(image.Width, image.Height);
+
+            for (int i = 1; i < image.Height - 2; ++i)
+            {
+
+                for (int j = 1; j < image.Width - 2; ++j)
+                {
+
+                    //var greenpixel = image.GetPixel(j, i).R;
+
+
+                    var s1 = image.GetPixel(j, i).R * blur_matrix_0_5_0[0, 0]; var s2 = image.GetPixel(j + 1, i).R * blur_matrix_0_5_0[0, 1]; var s3 = image.GetPixel(j + 2, i).R * blur_matrix_0_5_0[0, 2];
+                    var s4 = image.GetPixel(j, i + 1).R * blur_matrix_0_5_0[1, 0]; var s5 = image.GetPixel(j + 1, i + 1).R * blur_matrix_0_5_0[1, 1]; var s6 = image.GetPixel(j + 2, i + 1).R * blur_matrix_0_5_0[1, 2];
+                    var s7 = image.GetPixel(j, i + 2).R * blur_matrix_0_5_0[2, 0]; var s8 = image.GetPixel(j + 1, i + 2).R * blur_matrix_0_5_0[2, 1]; var s9 = image.GetPixel(j + 2, i + 2).R * blur_matrix_0_5_0[2, 2];
+
+                    var sum_1 = (int)(s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9) / 1;
+                    if (sum_1 > 255) sum_1 = 255;
+                    if (sum_1 < 0) sum_1 = 0;
+
+                    //var final_sum = sum_1 + sum_2;
+
+
+
+                    image.SetPixel(j, i, Color.FromArgb(255, sum_1, sum_1, sum_1));
+                }
+            }
+
+        }
+        public void sobelNW()
+        {
+            int[,] blur_matrix_0_5_0 = { { 2, 1, 0 }, { 1, 0, -1 }, { 0, -1, -2 } };
+
+            Bitmap image = this.bitmap;
+
+            //Bitmap temp_btm = new Bitmap(image.Width, image.Height);
+
+            for (int i = 1; i < image.Height - 2; ++i)
+            {
+
+                for (int j = 1; j < image.Width - 2; ++j)
+                {
+
+                    //var greenpixel = image.GetPixel(j, i).R;
+
+
+                    var s1 = image.GetPixel(j, i).R * blur_matrix_0_5_0[0, 0]; var s2 = image.GetPixel(j + 1, i).R * blur_matrix_0_5_0[0, 1]; var s3 = image.GetPixel(j + 2, i).R * blur_matrix_0_5_0[0, 2];
+                    var s4 = image.GetPixel(j, i + 1).R * blur_matrix_0_5_0[1, 0]; var s5 = image.GetPixel(j + 1, i + 1).R * blur_matrix_0_5_0[1, 1]; var s6 = image.GetPixel(j + 2, i + 1).R * blur_matrix_0_5_0[1, 2];
+                    var s7 = image.GetPixel(j, i + 2).R * blur_matrix_0_5_0[2, 0]; var s8 = image.GetPixel(j + 1, i + 2).R * blur_matrix_0_5_0[2, 1]; var s9 = image.GetPixel(j + 2, i + 2).R * blur_matrix_0_5_0[2, 2];
+
+                    var sum_1 = (int)(s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9) / 1;
+                    if (sum_1 > 255) sum_1 = 255;
+                    if (sum_1 < 0) sum_1 = 0;
+
+                    //var final_sum = sum_1 + sum_2;
+
+
+
+                    image.SetPixel(j, i, Color.FromArgb(255, sum_1, sum_1, sum_1));
+                }
+            }
+
+        }
+
+        public void sobelN()
+        {
+            int[,] blur_matrix_0_5_0 = { { 1, 2, 1 }, { 0, 0, 0 }, { -1, -2, -1 } };
+
+            Bitmap image = this.bitmap;
+
+            //Bitmap temp_btm = new Bitmap(image.Width, image.Height);
+
+            for (int i = 1; i < image.Height - 2; ++i)
+            {
+
+                for (int j = 1; j < image.Width - 2; ++j)
+                {
+
+                    //var greenpixel = image.GetPixel(j, i).R;
+
+
+                    var s1 = image.GetPixel(j, i).R * blur_matrix_0_5_0[0, 0]; var s2 = image.GetPixel(j + 1, i).R * blur_matrix_0_5_0[0, 1]; var s3 = image.GetPixel(j + 2, i).R * blur_matrix_0_5_0[0, 2];
+                    var s4 = image.GetPixel(j, i + 1).R * blur_matrix_0_5_0[1, 0]; var s5 = image.GetPixel(j + 1, i + 1).R * blur_matrix_0_5_0[1, 1]; var s6 = image.GetPixel(j + 2, i + 1).R * blur_matrix_0_5_0[1, 2];
+                    var s7 = image.GetPixel(j, i + 2).R * blur_matrix_0_5_0[2, 0]; var s8 = image.GetPixel(j + 1, i + 2).R * blur_matrix_0_5_0[2, 1]; var s9 = image.GetPixel(j + 2, i + 2).R * blur_matrix_0_5_0[2, 2];
+
+                    var sum_1 = (int)(s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9) / 1;
+                    if (sum_1 > 255) sum_1 = 255;
+                    if (sum_1 < 0) sum_1 = 0;
+
+                    //var final_sum = sum_1 + sum_2;
+
+
+
+                    image.SetPixel(j, i, Color.FromArgb(255, sum_1, sum_1, sum_1));
+                }
+            }
+
+        }
+        public void sobelS()
+        {
+            int[,] blur_matrix_0_5_0 = { { -1, -2, -1 }, { 0, 0, 0 }, { 1, 2, 1 } };
+
+            Bitmap image = this.bitmap;
+
+            //Bitmap temp_btm = new Bitmap(image.Width, image.Height);
+
+            for (int i = 1; i < image.Height - 2; ++i)
+            {
+
+                for (int j = 1; j < image.Width - 2; ++j)
+                {
+
+                    //var greenpixel = image.GetPixel(j, i).R;
+
+
+                    var s1 = image.GetPixel(j, i).R * blur_matrix_0_5_0[0, 0]; var s2 = image.GetPixel(j + 1, i).R * blur_matrix_0_5_0[0, 1]; var s3 = image.GetPixel(j + 2, i).R * blur_matrix_0_5_0[0, 2];
+                    var s4 = image.GetPixel(j, i + 1).R * blur_matrix_0_5_0[1, 0]; var s5 = image.GetPixel(j + 1, i + 1).R * blur_matrix_0_5_0[1, 1]; var s6 = image.GetPixel(j + 2, i + 1).R * blur_matrix_0_5_0[1, 2];
+                    var s7 = image.GetPixel(j, i + 2).R * blur_matrix_0_5_0[2, 0]; var s8 = image.GetPixel(j + 1, i + 2).R * blur_matrix_0_5_0[2, 1]; var s9 = image.GetPixel(j + 2, i + 2).R * blur_matrix_0_5_0[2, 2];
+
+                    var sum_1 = (int)(s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9) / 1;
+                    if (sum_1 > 255) sum_1 = 255;
+                    if (sum_1 < 0) sum_1 = 0;
+
+                    //var final_sum = sum_1 + sum_2;
+
+
+
+                    image.SetPixel(j, i, Color.FromArgb(255, sum_1, sum_1, sum_1));
+                }
+            }
+
+        }
+        public void sobelSE()
+        {
+            int[,] blur_matrix_0_5_0 = { { -2, -1, 0 }, { -1, 0, 1 }, { 0, 1, 2 } };
+
+            Bitmap image = this.bitmap;
+
+            //Bitmap temp_btm = new Bitmap(image.Width, image.Height);
+
+            for (int i = 1; i < image.Height - 2; ++i)
+            {
+
+                for (int j = 1; j < image.Width - 2; ++j)
+                {
+
+                    //var greenpixel = image.GetPixel(j, i).R;
+
+
+                    var s1 = image.GetPixel(j, i).R * blur_matrix_0_5_0[0, 0]; var s2 = image.GetPixel(j + 1, i).R * blur_matrix_0_5_0[0, 1]; var s3 = image.GetPixel(j + 2, i).R * blur_matrix_0_5_0[0, 2];
+                    var s4 = image.GetPixel(j, i + 1).R * blur_matrix_0_5_0[1, 0]; var s5 = image.GetPixel(j + 1, i + 1).R * blur_matrix_0_5_0[1, 1]; var s6 = image.GetPixel(j + 2, i + 1).R * blur_matrix_0_5_0[1, 2];
+                    var s7 = image.GetPixel(j, i + 2).R * blur_matrix_0_5_0[2, 0]; var s8 = image.GetPixel(j + 1, i + 2).R * blur_matrix_0_5_0[2, 1]; var s9 = image.GetPixel(j + 2, i + 2).R * blur_matrix_0_5_0[2, 2];
+
+                    var sum_1 = (int)(s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9) / 1;
+                    if (sum_1 > 255) sum_1 = 255;
+                    if (sum_1 < 0) sum_1 = 0;
+
+                    //var final_sum = sum_1 + sum_2;
+
+
+
+                    image.SetPixel(j, i, Color.FromArgb(255, sum_1, sum_1, sum_1));
+                }
+            }
+        }
+        public void sobelSW()
+        {
+            int[,] blur_matrix_0_5_0 = { { 0, -1, -2 }, { 1, 0, -1 }, { 2, 1, 0 } };
+
+            Bitmap image = this.bitmap;
+
+            //Bitmap temp_btm = new Bitmap(image.Width, image.Height);
+
+            for (int i = 1; i < image.Height - 2; ++i)
+            {
+
+                for (int j = 1; j < image.Width - 2; ++j)
+                {
+
+                    //var greenpixel = image.GetPixel(j, i).R;
+
+
+                    var s1 = image.GetPixel(j, i).R * blur_matrix_0_5_0[0, 0]; var s2 = image.GetPixel(j + 1, i).R * blur_matrix_0_5_0[0, 1]; var s3 = image.GetPixel(j + 2, i).R * blur_matrix_0_5_0[0, 2];
+                    var s4 = image.GetPixel(j, i + 1).R * blur_matrix_0_5_0[1, 0]; var s5 = image.GetPixel(j + 1, i + 1).R * blur_matrix_0_5_0[1, 1]; var s6 = image.GetPixel(j + 2, i + 1).R * blur_matrix_0_5_0[1, 2];
+                    var s7 = image.GetPixel(j, i + 2).R * blur_matrix_0_5_0[2, 0]; var s8 = image.GetPixel(j + 1, i + 2).R * blur_matrix_0_5_0[2, 1]; var s9 = image.GetPixel(j + 2, i + 2).R * blur_matrix_0_5_0[2, 2];
+
+                    var sum_1 = (int)(s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9) / 1;
+                    if (sum_1 > 255) sum_1 = 255;
+                    if (sum_1 < 0) sum_1 = 0;
+
+                    //var final_sum = sum_1 + sum_2;
+
+
+
+                    image.SetPixel(j, i, Color.FromArgb(255, sum_1, sum_1, sum_1));
+                }
+            }
+        }
+        public void median3x3()
+        {
+            Bitmap image = this.bitmap;
+
+            //Bitmap temp_btm = new Bitmap(image.Width, image.Height);
+
+            for (int i = 1; i < image.Height - 2; ++i)
+            {
+
+                for (int j = 1; j < image.Width - 2; ++j)
+                {
+
+                    //var greenpixel = image.GetPixel(j, i).R;
+
+
+
+                    int s1 = image.GetPixel(j, i).R; int s2 = image.GetPixel(j + 1, i).R; int s3 = image.GetPixel(j + 2, i).R;
+                    int s4 = image.GetPixel(j, i + 1).R; int s5 = image.GetPixel(j + 1, i + 1).R; int s6 = image.GetPixel(j + 2, i + 1).R;
+                    int s7 = image.GetPixel(j, i + 2).R; int s8 = image.GetPixel(j + 1, i + 2).R; int s9 = image.GetPixel(j + 2, i + 2).R;
+                    int[] arr = { s1, s2, s3, s4, s5, s6, s7, s8, s9 };
+                    Array.Sort(arr);
+
+                    int npixel = arr[4];
+
+
+                    //var final_sum = sum_1 + sum_2;
+
+                    image.SetPixel(j, i, Color.FromArgb(255, npixel, npixel, npixel));
+                }
+            }
+        }
+
+        public void median5x5()
+        {
+            Bitmap image = this.bitmap;
+
+            int[,] blur_matrix = { {   1,  1,  1,  1, 1 },
+                                    {  1, 1,  1, 1,  1 },
+                                    { 1, 1,  1,1,  1 },
+                                    {  1,  1, 1, 1,  1 },
+                                    {  1,   1, 1,  1,  1 }
+            };
+            //Bitmap temp_btm = new Bitmap(image.Width, image.Height);
+
+            for (int i = 2; i < image.Height - 4; ++i)
+            {
+
+                for (int j = 2; j < image.Width - 4; ++j)
+                {
+
+                    //var greenpixel = image.GetPixel(j, i).R;
+                    var s1 = image.GetPixel(j, i).R * blur_matrix[0, 0]; var s2 = image.GetPixel(j + 1, i).R * blur_matrix[0, 1]; var s3 = image.GetPixel(j + 2, i).R * blur_matrix[0, 2]; var s4 = image.GetPixel(j + 3, i).R * blur_matrix[0, 3]; var s5 = image.GetPixel(j + 4, i).R * blur_matrix[0, 4];
+                    var s6 = image.GetPixel(j, i + 1).R * blur_matrix[1, 0]; var s7 = image.GetPixel(j + 1, i + 1).R * blur_matrix[1, 1]; var s8 = image.GetPixel(j + 2, i + 1).R * blur_matrix[1, 2]; var s9 = image.GetPixel(j + 3, i + 1).R * blur_matrix[1, 3]; var s10 = image.GetPixel(j + 4, i + 1).R * blur_matrix[1, 4];
+                    var s11 = image.GetPixel(j, i + 2).R * blur_matrix[2, 0]; var s12 = image.GetPixel(j + 1, i + 2).R * blur_matrix[2, 1]; var s13 = image.GetPixel(j + 2, i + 2).R * blur_matrix[2, 2]; var s14 = image.GetPixel(j + 3, i + 2).R * blur_matrix[2, 3]; var s15 = image.GetPixel(j + 4, i + 2).R * blur_matrix[2, 4];
+                    var s16 = image.GetPixel(j, i + 3).R * blur_matrix[3, 0]; var s17 = image.GetPixel(j + 1, i + 3).R * blur_matrix[3, 1]; var s18 = image.GetPixel(j + 2, i + 3).R * blur_matrix[3, 2]; var s19 = image.GetPixel(j + 3, i + 3).R * blur_matrix[3, 3]; var s20 = image.GetPixel(j + 4, i + 3).R * blur_matrix[3, 4];
+                    var s21 = image.GetPixel(j, i + 4).R * blur_matrix[4, 0]; var s22 = image.GetPixel(j + 1, i + 4).R * blur_matrix[4, 1]; var s23 = image.GetPixel(j + 2, i + 4).R * blur_matrix[4, 2]; var s24 = image.GetPixel(j + 3, i + 4).R * blur_matrix[4, 3]; var s25 = image.GetPixel(j + 4, i + 4).R * blur_matrix[4, 4];
+
+                    int[] arr = { s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19, s20, s21, s22, s23, s24, s25 };
+                    Array.Sort(arr);
+
+                    int npixel = arr[12];
+
+
+                    //var final_sum = sum_1 + sum_2;
+
+                    image.SetPixel(j, i, Color.FromArgb(255, npixel, npixel, npixel));
+                }
+            }
+        }
+        public void median7x7()
+        {
+            Bitmap image = this.bitmap;
+
+            int[,] blur_matrix = { {   1,  1,  1,  1, 1 },
+                                    {  1, 1,  1, 1,  1 },
+                                    { 1, 1,  1,1,  1 },
+                                    {  1,  1, 1, 1,  1 },
+                                    {  1,   1, 1,  1,  1 }
+            };
+            //Bitmap temp_btm = new Bitmap(image.Width, image.Height);
+
+            for (int i = 3; i < image.Height - 7; ++i)
+            {
+
+                for (int j = 3; j < image.Width - 7; ++j)
+                {
+
+                    //var greenpixel = image.GetPixel(j, i).R;
+                    var s1 = image.GetPixel(j, i).R; var s2 = image.GetPixel(j + 1, i).R; var s3 = image.GetPixel(j + 2, i).R; var s4 = image.GetPixel(j + 3, i).R; var s5 = image.GetPixel(j + 4, i).R; var s6 = image.GetPixel(j + 5, i).R; var s7 = image.GetPixel(j + 6, i).R;
+                    var s8 = image.GetPixel(j, i + 1).R; var s9 = image.GetPixel(j + 1, i + 1).R; var s10 = image.GetPixel(j + 2, i + 1).R; var s11 = image.GetPixel(j + 3, i + 1).R; var s12 = image.GetPixel(j + 4, i + 1).R; var s13 = image.GetPixel(j + 5, i + 1).R; var s14 = image.GetPixel(j + 6, i + 1).R;
+                    var s15 = image.GetPixel(j, i + 2).R; var s16 = image.GetPixel(j + 1, i + 2).R; var s17 = image.GetPixel(j + 2, i + 2).R; var s18 = image.GetPixel(j + 3, i + 2).R; var s19 = image.GetPixel(j + 4, i + 2).R; var s20 = image.GetPixel(j + 5, i + 2).R; var s21 = image.GetPixel(j + 6, i + 2).R;
+                    var s22 = image.GetPixel(j, i + 3).R; var s23 = image.GetPixel(j + 1, i + 3).R; var s24 = image.GetPixel(j + 2, i + 3).R; var s25 = image.GetPixel(j + 3, i + 3).R; var s26 = image.GetPixel(j + 4, i + 3).R; var s27 = image.GetPixel(j + 5, i + 3).R; var s28 = image.GetPixel(j + 6, i + 3).R;
+                    var s29 = image.GetPixel(j, i + 4).R; var s30 = image.GetPixel(j + 1, i + 4).R; var s31 = image.GetPixel(j + 2, i + 4).R; var s32 = image.GetPixel(j + 3, i + 4).R; var s33 = image.GetPixel(j + 4, i + 4).R; var s34 = image.GetPixel(j + 5, i + 4).R; var s35 = image.GetPixel(j + 6, i + 4).R;
+                    var s36 = image.GetPixel(j, i + 5).R; var s37 = image.GetPixel(j + 1, i + 5).R; var s38 = image.GetPixel(j + 2, i + 5).R; var s39 = image.GetPixel(j + 3, i + 5).R; var s40 = image.GetPixel(j + 4, i + 5).R; var s41 = image.GetPixel(j + 5, i + 5).R; var s42 = image.GetPixel(j + 6, i + 5).R;
+                    var s43 = image.GetPixel(j, i + 6).R; var s44 = image.GetPixel(j + 1, i + 6).R; var s45 = image.GetPixel(j + 2, i + 6).R; var s46 = image.GetPixel(j + 3, i + 6).R; var s47 = image.GetPixel(j + 4, i + 6).R; var s48 = image.GetPixel(j + 5, i + 6).R; var s49 = image.GetPixel(j + 6, i + 6).R;
+
+
+                    int[] arr = {
+                    s1,
+                    s2,
+                    s3,
+                    s4,
+                    s5,
+                    s6,
+                    s7,
+                    s8,
+                    s9,
+                    s10,
+                    s11,
+                    s12,
+                    s13,
+                    s14,
+                    s15,
+                    s16,
+                    s17,
+                    s18,
+                    s19,
+                    s20,
+                    s21,
+                    s22,
+                    s23,
+                    s24,
+                    s25,
+                    s26,
+                    s27,
+                    s28,
+                    s29,
+                    s30,
+                    s31,
+                    s32,
+                    s33,
+                    s34,
+                    s35,
+                    s36,
+                    s37,
+                    s38,
+                    s39,
+                    s40,
+                    s41,
+                    s42,
+                    s43,
+                    s44,
+                    s45,
+                    s46,
+                    s47,
+                    s48,
+                    s49
+                     };
+
+
+                    Array.Sort(arr);
+
+                    int npixel = arr[24];
+
+
+
+
+                    image.SetPixel(j, i, Color.FromArgb(255, npixel, npixel, npixel));
+                }
+            }
+        }
 
     }
 }
