@@ -59,6 +59,15 @@
             this.aNDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xORToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton4 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.blurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.linearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gausianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.averagingWithWeightsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sharpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.n9nToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +81,8 @@
             this.toolStripDropDownButton1,
             this.toolStripButton1,
             this.toolStripDropDownButton2,
-            this.toolStripDropDownButton3});
+            this.toolStripDropDownButton3,
+            this.toolStripDropDownButton4});
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
@@ -314,6 +324,69 @@
             this.xORToolStripMenuItem.Name = "xORToolStripMenuItem";
             resources.ApplyResources(this.xORToolStripMenuItem, "xORToolStripMenuItem");
             // 
+            // toolStripDropDownButton4
+            // 
+            this.toolStripDropDownButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownButton4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.blurToolStripMenuItem,
+            this.sharpenToolStripMenuItem});
+            resources.ApplyResources(this.toolStripDropDownButton4, "toolStripDropDownButton4");
+            this.toolStripDropDownButton4.Name = "toolStripDropDownButton4";
+            // 
+            // blurToolStripMenuItem
+            // 
+            this.blurToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.linearToolStripMenuItem,
+            this.gausianToolStripMenuItem,
+            this.averagingWithWeightsToolStripMenuItem});
+            this.blurToolStripMenuItem.Name = "blurToolStripMenuItem";
+            resources.ApplyResources(this.blurToolStripMenuItem, "blurToolStripMenuItem");
+            // 
+            // linearToolStripMenuItem
+            // 
+            this.linearToolStripMenuItem.Name = "linearToolStripMenuItem";
+            resources.ApplyResources(this.linearToolStripMenuItem, "linearToolStripMenuItem");
+            this.linearToolStripMenuItem.Click += new System.EventHandler(this.linearToolStripMenuItem_Click);
+            // 
+            // gausianToolStripMenuItem
+            // 
+            this.gausianToolStripMenuItem.Name = "gausianToolStripMenuItem";
+            resources.ApplyResources(this.gausianToolStripMenuItem, "gausianToolStripMenuItem");
+            this.gausianToolStripMenuItem.Click += new System.EventHandler(this.gausianToolStripMenuItem_Click);
+            // 
+            // averagingWithWeightsToolStripMenuItem
+            // 
+            this.averagingWithWeightsToolStripMenuItem.Name = "averagingWithWeightsToolStripMenuItem";
+            resources.ApplyResources(this.averagingWithWeightsToolStripMenuItem, "averagingWithWeightsToolStripMenuItem");
+            this.averagingWithWeightsToolStripMenuItem.Click += new System.EventHandler(this.averagingWithWeightsToolStripMenuItem_Click);
+            // 
+            // sharpenToolStripMenuItem
+            // 
+            this.sharpenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.n9nToolStripMenuItem,
+            this.toolStripMenuItem3});
+            this.sharpenToolStripMenuItem.Name = "sharpenToolStripMenuItem";
+            resources.ApplyResources(this.sharpenToolStripMenuItem, "sharpenToolStripMenuItem");
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // n9nToolStripMenuItem
+            // 
+            this.n9nToolStripMenuItem.Name = "n9nToolStripMenuItem";
+            resources.ApplyResources(this.n9nToolStripMenuItem, "n9nToolStripMenuItem");
+            this.n9nToolStripMenuItem.Click += new System.EventHandler(this.n9nToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            resources.ApplyResources(this.toolStripMenuItem3, "toolStripMenuItem3");
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
             // MainView
             // 
             resources.ApplyResources(this, "$this");
@@ -366,6 +439,15 @@
         private System.Windows.Forms.ToolStripMenuItem singleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem singleEqulizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem doubleEqualizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton4;
+        private System.Windows.Forms.ToolStripMenuItem blurToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem linearToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gausianToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem averagingWithWeightsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sharpenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem n9nToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
     }
 }
 

@@ -351,5 +351,95 @@ namespace APO {
             Form form = new InputTresholdDouble(getActiveChild().bitmap, this, imagesList);
             form.Show();
         }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.laplace0_5_0();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.laplace1_5_1();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void linearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.blur();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void gausianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.gaussianblur();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void averagingWithWeightsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.blurWeighted();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void n9nToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.laplacen_9_n();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
     }
 }
