@@ -1068,7 +1068,7 @@
     <value>toolStripDropDownButton2</value>
   </data>
   <data name="negationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 24</value>
+    <value>180, 24</value>
   </data>
   <data name="negationToolStripMenuItem.Text" xml:space="preserve">
     <value>Negation</value>
@@ -1091,8 +1091,20 @@
   <data name="doubleEqualizeToolStripMenuItem.Text" xml:space="preserve">
     <value>Double side equalize</value>
   </data>
+  <data name="otsuToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 24</value>
+  </data>
+  <data name="otsuToolStripMenuItem.Text" xml:space="preserve">
+    <value>Otsu</value>
+  </data>
+  <data name="adaptiveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 24</value>
+  </data>
+  <data name="adaptiveToolStripMenuItem.Text" xml:space="preserve">
+    <value>Adaptive</value>
+  </data>
   <data name="progToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 24</value>
+    <value>180, 24</value>
   </data>
   <data name="progToolStripMenuItem.Text" xml:space="preserve">
     <value>Thresholding</value>
@@ -1152,25 +1164,25 @@
     <value>Multi Argument</value>
   </data>
   <data name="notToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 24</value>
+    <value>180, 24</value>
   </data>
   <data name="notToolStripMenuItem.Text" xml:space="preserve">
     <value>NOT</value>
   </data>
   <data name="aNDToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 24</value>
+    <value>180, 24</value>
   </data>
   <data name="aNDToolStripMenuItem.Text" xml:space="preserve">
     <value>AND</value>
   </data>
   <data name="oRToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 24</value>
+    <value>180, 24</value>
   </data>
   <data name="oRToolStripMenuItem.Text" xml:space="preserve">
     <value>OR</value>
   </data>
   <data name="xORToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 24</value>
+    <value>180, 24</value>
   </data>
   <data name="xORToolStripMenuItem.Text" xml:space="preserve">
     <value>XOR</value>
@@ -1328,136 +1340,166 @@
     <value>Averaging with weights</value>
   </data>
   <data name="blurToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>171, 24</value>
   </data>
   <data name="blurToolStripMenuItem.Text" xml:space="preserve">
     <value>Blur</value>
   </data>
   <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>130, 24</value>
   </data>
   <data name="toolStripMenuItem2.Text" xml:space="preserve">
     <value>0 * 5 * 0</value>
   </data>
   <data name="n9nToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>130, 24</value>
   </data>
   <data name="n9nToolStripMenuItem.Text" xml:space="preserve">
     <value>n * 9 * n</value>
   </data>
   <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>130, 24</value>
   </data>
   <data name="toolStripMenuItem3.Text" xml:space="preserve">
     <value>1 * 5 * 1</value>
   </data>
   <data name="sharpenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>171, 24</value>
   </data>
   <data name="sharpenToolStripMenuItem.Text" xml:space="preserve">
     <value>Sharpen</value>
   </data>
   <data name="sobelToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>123, 24</value>
   </data>
   <data name="sobelToolStripMenuItem.Text" xml:space="preserve">
     <value>Sobel</value>
   </data>
   <data name="laplaceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>123, 24</value>
   </data>
   <data name="laplaceToolStripMenuItem.Text" xml:space="preserve">
     <value>Laplace</value>
   </data>
   <data name="cannyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>123, 24</value>
   </data>
   <data name="cannyToolStripMenuItem.Text" xml:space="preserve">
     <value>Canny</value>
   </data>
   <data name="edgeDetectionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>171, 24</value>
   </data>
   <data name="edgeDetectionToolStripMenuItem.Text" xml:space="preserve">
     <value>Edge Detection</value>
   </data>
   <data name="nToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>101, 24</value>
   </data>
   <data name="nToolStripMenuItem.Text" xml:space="preserve">
     <value>N</value>
   </data>
   <data name="nEToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>101, 24</value>
   </data>
   <data name="nEToolStripMenuItem.Text" xml:space="preserve">
     <value>NE</value>
   </data>
   <data name="eToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>101, 24</value>
   </data>
   <data name="eToolStripMenuItem.Text" xml:space="preserve">
     <value>E</value>
   </data>
   <data name="sEToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>101, 24</value>
   </data>
   <data name="sEToolStripMenuItem.Text" xml:space="preserve">
     <value>SE</value>
   </data>
   <data name="sToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>101, 24</value>
   </data>
   <data name="sToolStripMenuItem.Text" xml:space="preserve">
     <value>S</value>
   </data>
   <data name="sWToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>101, 24</value>
   </data>
   <data name="sWToolStripMenuItem.Text" xml:space="preserve">
     <value>SW</value>
   </data>
   <data name="wToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>101, 24</value>
   </data>
   <data name="wToolStripMenuItem.Text" xml:space="preserve">
     <value>W</value>
   </data>
   <data name="nWToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>101, 24</value>
   </data>
   <data name="nWToolStripMenuItem.Text" xml:space="preserve">
     <value>NW</value>
   </data>
   <data name="edgeSobelToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>171, 24</value>
   </data>
   <data name="edgeSobelToolStripMenuItem.Text" xml:space="preserve">
     <value>Edge Sobel</value>
   </data>
   <data name="x3ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>100, 24</value>
   </data>
   <data name="x3ToolStripMenuItem.Text" xml:space="preserve">
     <value>3x3</value>
   </data>
   <data name="x5ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>100, 24</value>
   </data>
   <data name="x5ToolStripMenuItem.Text" xml:space="preserve">
     <value>5x5</value>
   </data>
   <data name="x7ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>100, 24</value>
   </data>
   <data name="x7ToolStripMenuItem.Text" xml:space="preserve">
     <value>7x7</value>
   </data>
   <data name="medianToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 24</value>
+    <value>171, 24</value>
   </data>
   <data name="medianToolStripMenuItem.Text" xml:space="preserve">
     <value>Median</value>
+  </data>
+  <data name="constant5ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 24</value>
+  </data>
+  <data name="constant5ToolStripMenuItem.Text" xml:space="preserve">
+    <value>Solid</value>
+  </data>
+  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 24</value>
+  </data>
+  <data name="toolStripMenuItem4.Text" xml:space="preserve">
+    <value>Solid Black</value>
+  </data>
+  <data name="borderReflectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 24</value>
+  </data>
+  <data name="borderReflectToolStripMenuItem.Text" xml:space="preserve">
+    <value>Border Reflect</value>
+  </data>
+  <data name="borderWrapToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 24</value>
+  </data>
+  <data name="borderWrapToolStripMenuItem.Text" xml:space="preserve">
+    <value>Border Wrap</value>
+  </data>
+  <data name="borderToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 24</value>
+  </data>
+  <data name="borderToolStripMenuItem.Text" xml:space="preserve">
+    <value>Border</value>
   </data>
   <data name="toolStripDropDownButton4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1644,6 +1686,18 @@
     <value>doubleEqualizeToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;doubleEqualizeToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;otsuToolStripMenuItem.Name" xml:space="preserve">
+    <value>otsuToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;otsuToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;adaptiveToolStripMenuItem.Name" xml:space="preserve">
+    <value>adaptiveToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;adaptiveToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;multiargumemtToolStripMenuItem.Name" xml:space="preserve">
@@ -1878,6 +1932,36 @@
     <value>x7ToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;x7ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;borderToolStripMenuItem.Name" xml:space="preserve">
+    <value>borderToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;borderToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;constant5ToolStripMenuItem.Name" xml:space="preserve">
+    <value>constant5ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;constant5ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem4.Name" xml:space="preserve">
+    <value>toolStripMenuItem4</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;borderReflectToolStripMenuItem.Name" xml:space="preserve">
+    <value>borderReflectToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;borderReflectToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;borderWrapToolStripMenuItem.Name" xml:space="preserve">
+    <value>borderWrapToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;borderWrapToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

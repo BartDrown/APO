@@ -13,6 +13,9 @@ namespace APO
 {
     public partial class InputTreshold : Form
     {
+        private Bitmap originalImage = null;
+        private ImageService previewService = null;
+
         private Image image;
         private Form parent;
         private List<ImageService> imagesList;
@@ -26,7 +29,7 @@ namespace APO
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            updatePreview();
         }
 
         private void Continue_Click(object sender, EventArgs e)
@@ -44,7 +47,9 @@ namespace APO
             imageService.imageView.Text = "copy";
             imagesList.Add(imageService);
             imageService.Show();
-           
+
+            this.previewService.Close();
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -54,6 +59,42 @@ namespace APO
 
         private void label1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void updatePreview()
+        {
+            try
+            {
+                //Up
+                if (Int32.Parse(textBox1.Text) > 255 || Int32.Parse(textBox1.Text) < 0)
+                {
+                    return;
+                }
+            }
+            catch { return; }
+
+            if (this.previewService == null)
+            {
+                Bitmap bitmap = new Bitmap(this.image);
+                this.originalImage = new Bitmap(this.image);
+                ImageService imageService = new ImageService(bitmap, "preview");
+                this.previewService = imageService;
+                imageService.Treshold(Int32.Parse(textBox1.Text));
+                imageService.Create();
+                imageService.imageView.MdiParent = this.parent;
+                imageService.imageView.Text = "preview";
+                imagesList.Add(imageService);
+                imageService.Show();
+            }
+            else
+            {
+                this.previewService.Update(originalImage);
+                this.previewService.Treshold(Int32.Parse(textBox1.Text), this.originalImage);
+                this.previewService.UpdateSelf();
+                this.previewService.Show();
+
+            }
 
         }
     }

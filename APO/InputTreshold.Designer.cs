@@ -1,4 +1,6 @@
-﻿namespace APO
+﻿using System.Drawing;
+
+namespace APO
 {
     partial class InputTreshold
     {
@@ -28,6 +30,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            //Image image = getActiveChild().bitmap;
+            //Bitmap bitmap = new Bitmap(image);
+
+            //ImageService imageService = new ImageService(bitmap, "preview");
+            //imageService.Create();
+            //imageService.imageView.MdiParent = this;
+            //imageService.imageView.Text = "preview";
+            //imagesList.Add(imageService);
+
+            //imageService.Show();
+
+
+
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Continue = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();

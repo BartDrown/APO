@@ -336,6 +336,7 @@ namespace APO {
            
 
             Form form = new InputTreshold(getActiveChild().bitmap, this, imagesList);
+            form.MdiParent = this;
             form.Show();
 
         }
@@ -343,12 +344,14 @@ namespace APO {
         private void singleEqulizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = new InputTresholdEqualize(getActiveChild().bitmap, this, imagesList);
+            form.MdiParent = this;
             form.Show();
         }
 
         private void doubleEqualizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = new InputTresholdDouble(getActiveChild().bitmap, this, imagesList);
+            form.MdiParent = this;
             form.Show();
         }
 
@@ -650,6 +653,80 @@ namespace APO {
             imagesList.Add(imageService);
 
             imageService.Show();
+        }
+
+        private void constant5ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.borderContant();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void borderReflectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.borderReflect();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.borderContantBlack();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void borderWrapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image image = getActiveChild().bitmap;
+            Bitmap bitmap = new Bitmap(image);
+
+            ImageService imageService = new ImageService(bitmap, "copy");
+            imageService.borderWrap();
+            imageService.Create();
+            imageService.imageView.MdiParent = this;
+            imageService.imageView.Text = "copy";
+            imagesList.Add(imageService);
+
+            imageService.Show();
+        }
+
+        private void otsuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = new InputTresholdOtsu(getActiveChild().bitmap, this, imagesList);
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void adaptiveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = new InputThresholdAdaptive(getActiveChild().bitmap, this, imagesList);
+            form.MdiParent = this;
+            form.Show();
         }
     }
 }

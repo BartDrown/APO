@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InputThresholdAdaptive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputThresholdAdaptive.Designer.cs">
+      <DependentUpon>InputThresholdAdaptive.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputTresholdDouble.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,12 @@
       <DependentUpon>ImageView.cs</DependentUpon>
     </Compile>
     <Compile Include="ImageService.cs" />
+    <Compile Include="InputTresholdOtsu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputTresholdOtsu.Designer.cs">
+      <DependentUpon>InputTresholdOtsu.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +110,9 @@
     <EmbeddedResource Include="ImageView.resx">
       <DependentUpon>ImageView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InputThresholdAdaptive.resx">
+      <DependentUpon>InputThresholdAdaptive.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InputTreshold.resx">
       <DependentUpon>InputTreshold.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InputTresholdEqualize.resx">
       <DependentUpon>InputTresholdEqualize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputTresholdOtsu.resx">
+      <DependentUpon>InputTresholdOtsu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainView.aa.resx">
       <DependentUpon>MainView.cs</DependentUpon>
@@ -138,6 +156,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Emgu.CV.runtime.windows">
+      <Version>4.6.0.5131</Version>
+    </PackageReference>
     <PackageReference Include="Emgu.TF">
       <Version>2.8.0.1418</Version>
     </PackageReference>
@@ -152,6 +173,15 @@
     </PackageReference>
     <PackageReference Include="MetroFramework">
       <Version>1.2.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="OpenCvSharp4">
+      <Version>4.6.0.20220608</Version>
+    </PackageReference>
+    <PackageReference Include="OpenCvSharp4.Extensions">
+      <Version>4.6.0.20220608</Version>
+    </PackageReference>
+    <PackageReference Include="OpenCvSharp4.runtime.win">
+      <Version>4.6.0.20220608</Version>
     </PackageReference>
     <PackageReference Include="paper-styles">
       <Version>1.0.3</Version>

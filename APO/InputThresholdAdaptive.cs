@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace APO
 {
-    public partial class InputTresholdDouble : Form
+    public partial class InputThresholdAdaptive : Form
     {
         private Bitmap originalImage = null;
         private ImageService previewService = null;
@@ -18,7 +18,7 @@ namespace APO
         private Image image;
         private Form parent;
         private List<ImageService> imagesList;
-        public InputTresholdDouble(Image image, Form parent, List<ImageService> imagesList)
+        public InputThresholdAdaptive(Image image, Form parent, List<ImageService> imagesList)
         {
             InitializeComponent();
             this.image = image;
@@ -26,46 +26,74 @@ namespace APO
             this.imagesList = imagesList;
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void Continue_Click(object sender, EventArgs e)
         {
-            //Up
-            if (Int32.Parse(textBox1.Text) > 255 || Int32.Parse(textBox1.Text) < 0)
-            {
-                return;
-            }
-            //Down
-            if (Int32.Parse(textBox3.Text) > 255 || Int32.Parse(textBox3.Text) < 0)
-            {
-                return;
-            }
-            //FinalValue
-            if (Int32.Parse(textBox4.Text) > 255 || Int32.Parse(textBox4.Text) < 0)
-            {
-                return;
-            }
-            // Inclusive/exclusive
-            if (Int32.Parse(textBox2.Text) != 0 && Int32.Parse(textBox2.Text) != 1)
-            {
-                return;
-            }
 
-            Bitmap bitmap = new Bitmap(this.image);
-            ImageService imageService = new ImageService(bitmap, "copy");
-            imageService.TresholdDouble(Int32.Parse(textBox1.Text), Int32.Parse(textBox3.Text), Int32.Parse(textBox4.Text), Int32.Parse(textBox2.Text));
-            imageService.Create();
-            imageService.imageView.MdiParent = this.parent;
-            imageService.imageView.Text = "copy";
-            imagesList.Add(imageService);
-            imageService.Show();
+        }
 
-            this.previewService.Close();
+        private void Continue_Click_1(object sender, EventArgs e)
+        {
+                //Up
+                if (Int32.Parse(textBox1.Text) > 255 || Int32.Parse(textBox1.Text) < 0)
+                {
+                    return;
+                }
+                //Down
+                if (Int32.Parse(textBox3.Text) > 255 || Int32.Parse(textBox3.Text) < 0)
+                {
+                    return;
+                }
+                //FinalValue
+                if (Int32.Parse(textBox4.Text) > 255 || Int32.Parse(textBox4.Text) < 0)
+                {
+                    return;
+                }
+                // Inclusive/exclusive
+                if (Int32.Parse(textBox2.Text) != 0 && Int32.Parse(textBox2.Text) != 1)
+                {
+                    return;
+                }
+
+                Bitmap bitmap = new Bitmap(this.image);
+                ImageService imageService = new ImageService(bitmap, "copy");
+                imageService.TresholdAdaptive(Int32.Parse(textBox1.Text), Int32.Parse(textBox3.Text), Int32.Parse(textBox4.Text), Int32.Parse(textBox2.Text));
+                imageService.Create();
+                imageService.imageView.MdiParent = this.parent;
+                imageService.imageView.Text = "copy";
+                imagesList.Add(imageService);
+                imageService.Show();
+
+                this.previewService.Close();
+            
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            this.updatePreview();
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            this.updatePreview();
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            this.updatePreview();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             this.updatePreview();
         }
-        private void updatePreview(){
+
+        private void updatePreview()
+        {
             try
             {
                 //Up
@@ -97,7 +125,7 @@ namespace APO
                 this.originalImage = new Bitmap(this.image);
                 ImageService imageService = new ImageService(bitmap, "preview");
                 this.previewService = imageService;
-                imageService.TresholdDouble(Int32.Parse(textBox3.Text), Int32.Parse(textBox1.Text), Int32.Parse(textBox4.Text), Int32.Parse(textBox2.Text));
+                imageService.TresholdAdaptive(Int32.Parse(textBox1.Text), Int32.Parse(textBox3.Text), Int32.Parse(textBox4.Text), Int32.Parse(textBox2.Text));
                 imageService.Create();
                 imageService.imageView.MdiParent = this.parent;
                 imageService.imageView.Text = "preview";
@@ -107,29 +135,11 @@ namespace APO
             else
             {
                 this.previewService.Update(this.originalImage);
-                this.previewService.TresholdDouble(Int32.Parse(textBox3.Text), Int32.Parse(textBox1.Text), Int32.Parse(textBox4.Text), Int32.Parse(textBox2.Text), this.originalImage);
+                this.previewService.TresholdAdaptive(Int32.Parse(textBox1.Text), Int32.Parse(textBox3.Text), Int32.Parse(textBox4.Text), Int32.Parse(textBox2.Text), this.originalImage);
                 this.previewService.UpdateSelf();
                 this.previewService.Show();
 
             }
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            this.updatePreview();
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-            this.updatePreview();
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            this.updatePreview();
 
         }
     }

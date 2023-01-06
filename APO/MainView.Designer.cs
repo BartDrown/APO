@@ -46,6 +46,8 @@
             this.singleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.singleEqulizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doubleEqualizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otsuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adaptiveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.multiargumemtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addSaturatedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNotSaturatedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,6 +87,11 @@
             this.x3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.x5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.x7ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.borderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.constant5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.borderReflectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.borderWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -234,7 +241,9 @@
             this.progToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.singleToolStripMenuItem,
             this.singleEqulizeToolStripMenuItem,
-            this.doubleEqualizeToolStripMenuItem});
+            this.doubleEqualizeToolStripMenuItem,
+            this.otsuToolStripMenuItem,
+            this.adaptiveToolStripMenuItem});
             this.progToolStripMenuItem.Name = "progToolStripMenuItem";
             resources.ApplyResources(this.progToolStripMenuItem, "progToolStripMenuItem");
             this.progToolStripMenuItem.Click += new System.EventHandler(this.progToolStripMenuItem_Click);
@@ -256,6 +265,18 @@
             this.doubleEqualizeToolStripMenuItem.Name = "doubleEqualizeToolStripMenuItem";
             resources.ApplyResources(this.doubleEqualizeToolStripMenuItem, "doubleEqualizeToolStripMenuItem");
             this.doubleEqualizeToolStripMenuItem.Click += new System.EventHandler(this.doubleEqualizeToolStripMenuItem_Click);
+            // 
+            // otsuToolStripMenuItem
+            // 
+            this.otsuToolStripMenuItem.Name = "otsuToolStripMenuItem";
+            resources.ApplyResources(this.otsuToolStripMenuItem, "otsuToolStripMenuItem");
+            this.otsuToolStripMenuItem.Click += new System.EventHandler(this.otsuToolStripMenuItem_Click);
+            // 
+            // adaptiveToolStripMenuItem
+            // 
+            this.adaptiveToolStripMenuItem.Name = "adaptiveToolStripMenuItem";
+            resources.ApplyResources(this.adaptiveToolStripMenuItem, "adaptiveToolStripMenuItem");
+            this.adaptiveToolStripMenuItem.Click += new System.EventHandler(this.adaptiveToolStripMenuItem_Click);
             // 
             // multiargumemtToolStripMenuItem
             // 
@@ -349,7 +370,8 @@
             this.sharpenToolStripMenuItem,
             this.edgeDetectionToolStripMenuItem,
             this.edgeSobelToolStripMenuItem,
-            this.medianToolStripMenuItem});
+            this.medianToolStripMenuItem,
+            this.borderToolStripMenuItem});
             resources.ApplyResources(this.toolStripDropDownButton4, "toolStripDropDownButton4");
             this.toolStripDropDownButton4.Name = "toolStripDropDownButton4";
             // 
@@ -523,6 +545,40 @@
             resources.ApplyResources(this.x7ToolStripMenuItem, "x7ToolStripMenuItem");
             this.x7ToolStripMenuItem.Click += new System.EventHandler(this.x7ToolStripMenuItem_Click);
             // 
+            // borderToolStripMenuItem
+            // 
+            this.borderToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.constant5ToolStripMenuItem,
+            this.toolStripMenuItem4,
+            this.borderReflectToolStripMenuItem,
+            this.borderWrapToolStripMenuItem});
+            this.borderToolStripMenuItem.Name = "borderToolStripMenuItem";
+            resources.ApplyResources(this.borderToolStripMenuItem, "borderToolStripMenuItem");
+            // 
+            // constant5ToolStripMenuItem
+            // 
+            this.constant5ToolStripMenuItem.Name = "constant5ToolStripMenuItem";
+            resources.ApplyResources(this.constant5ToolStripMenuItem, "constant5ToolStripMenuItem");
+            this.constant5ToolStripMenuItem.Click += new System.EventHandler(this.constant5ToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
+            // 
+            // borderReflectToolStripMenuItem
+            // 
+            this.borderReflectToolStripMenuItem.Name = "borderReflectToolStripMenuItem";
+            resources.ApplyResources(this.borderReflectToolStripMenuItem, "borderReflectToolStripMenuItem");
+            this.borderReflectToolStripMenuItem.Click += new System.EventHandler(this.borderReflectToolStripMenuItem_Click);
+            // 
+            // borderWrapToolStripMenuItem
+            // 
+            this.borderWrapToolStripMenuItem.Name = "borderWrapToolStripMenuItem";
+            resources.ApplyResources(this.borderWrapToolStripMenuItem, "borderWrapToolStripMenuItem");
+            this.borderWrapToolStripMenuItem.Click += new System.EventHandler(this.borderWrapToolStripMenuItem_Click);
+            // 
             // MainView
             // 
             resources.ApplyResources(this, "$this");
@@ -601,6 +657,13 @@
         private System.Windows.Forms.ToolStripMenuItem x3ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem x5ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem x7ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem borderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem constant5ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem borderReflectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem borderWrapToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem otsuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adaptiveToolStripMenuItem;
     }
 }
 

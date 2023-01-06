@@ -33,6 +33,12 @@ namespace APO {
 
         }
 
+        public void setImage(Bitmap bitmap)
+        {
+            imageBox.Image = bitmap;
+        }
+
+
         private void imageBox_Click(object sender, EventArgs e)
         {
 

@@ -7,6 +7,15 @@ using System.Drawing;
 using System.Windows.Forms.DataVisualization.Charting;
 using static System.Net.Mime.MediaTypeNames;
 using Image = System.Drawing.Image;
+using OpenCvSharp;
+//using Emgu.CV.Structure;
+using OpenCvSharp.Extensions;
+using System.Deployment.Application;
+//using Emgu.CV;
+//using Emgu;
+//using Emgu.CV.Structure;
+//using Emgu.CV;
+//using Mat = OpenCvSharp.Mat;
 
 namespace APO {
     public class ImageService {
@@ -44,6 +53,23 @@ namespace APO {
         public ImageView Create() {
             this.imageView = new ImageView(this.bitmap);
             return imageView;
+        }
+
+        public void UpdateSelf()
+        {
+            this.imageView.setImage(this.bitmap);
+            this.imageView.Update();
+        }
+
+        public void Update(Bitmap bitmap)
+        {
+            this.imageView.setImage(bitmap);
+            this.imageView.Update();
+        }
+
+        public void Close()
+        {
+            this.imageView.Close();
         }
 
         public void Show() {
@@ -236,8 +262,12 @@ namespace APO {
 
         }
 
-        public void Treshold(int treshold)
+        public void Treshold(int treshold, Bitmap bitmap = null)
         {
+            if (bitmap == null) {
+                bitmap = this.bitmap;
+            }
+
             ImageService newImage = this;
             Bitmap grayScale = new Bitmap(newImage.bitmap.Width, newImage.bitmap.Height);
 
@@ -263,8 +293,13 @@ namespace APO {
 
         }
 
-        public void TresholdEqualize(int treshold, int direction)
+        public void TresholdEqualize(int treshold, int direction, Bitmap bitmap = null)
         {
+            if (bitmap == null)
+            {
+                bitmap = this.bitmap;
+            }
+
             ImageService newImage = this;
             Bitmap grayScale = new Bitmap(newImage.bitmap.Width, newImage.bitmap.Height);
 
@@ -296,8 +331,13 @@ namespace APO {
 
         }
 
-        public void TresholdDouble(int tresholdTop, int tresholdDown, int value ,int mode)
+        public void TresholdDouble(int tresholdTop, int tresholdDown, int value ,int mode, Bitmap bitmap = null)
         {
+            if (bitmap == null)
+            {
+                bitmap = this.bitmap;
+            }
+
             ImageService newImage = this;
             Bitmap grayScale = new Bitmap(newImage.bitmap.Width, newImage.bitmap.Height);
 
@@ -340,6 +380,63 @@ namespace APO {
             this.bitmap = grayScale;
 
         }
+
+        public void TresholdOtsu(int threshold, int maxVal, Bitmap bitmap = null)
+        {
+            if (bitmap == null)
+            {
+                bitmap = this.bitmap;
+            }
+
+
+            Mat mat = this.bitmap.ToMat();
+
+            if (mat.Channels() != 1){
+                OpenCvSharp.Cv2.CvtColor(mat, mat, ColorConversionCodes.BGR2GRAY);
+            }
+
+            OpenCvSharp.Cv2.Threshold(mat, mat, threshold, maxVal, ThresholdTypes.Otsu);
+
+            this.bitmap = mat.ToBitmap();
+        }
+
+        public void TresholdAdaptive(int blockSize, int maxVal, int constant, int mode, Bitmap bitmap = null)
+        {
+            if (bitmap == null)
+            {
+                bitmap = this.bitmap;
+            }
+
+
+            Mat mat = bitmap.ToMat();
+
+            if (mat.Channels() != 1)
+            {
+                OpenCvSharp.Cv2.CvtColor(mat, mat, ColorConversionCodes.BGR2GRAY);
+            }
+
+            if(blockSize % 2 == 0)
+            {
+                blockSize += 1;
+            }
+
+            if (blockSize == 1)
+            {
+                blockSize = 3;
+            }
+
+            if (mode == 0)
+            {
+                OpenCvSharp.Cv2.AdaptiveThreshold(mat, mat, maxVal, AdaptiveThresholdTypes.GaussianC, ThresholdTypes.Binary, blockSize, constant);
+            }
+            else
+            {
+                OpenCvSharp.Cv2.AdaptiveThreshold(mat, mat, maxVal, AdaptiveThresholdTypes.MeanC, ThresholdTypes.Binary, blockSize, constant);
+            }
+
+            this.bitmap = mat.ToBitmap();
+        }
+
 
         public void blur()
         {
@@ -1124,6 +1221,46 @@ namespace APO {
                 }
             }
         }
+
+
+        public void borderContant()
+        {
+            Mat mat = this.bitmap.ToMat();
+
+            mat = mat.CopyMakeBorder(25, 25, 25, 25, OpenCvSharp.BorderTypes.Constant);
+
+            this.bitmap = mat.ToBitmap();
+
+        }
+
+        public void borderContantBlack()
+        {
+            Mat mat = this.bitmap.ToMat();
+
+            mat = mat.CopyMakeBorder(25, 25, 25, 25, OpenCvSharp.BorderTypes.Constant, new Scalar(255, 0, 0));
+
+            this.bitmap = mat.ToBitmap();
+
+        }
+        public void borderReflect()
+        {
+            Mat mat = this.bitmap.ToMat();
+
+            mat = mat.CopyMakeBorder(25, 25, 25, 25, OpenCvSharp.BorderTypes.Reflect);
+
+            this.bitmap = mat.ToBitmap();
+
+        }
+        public void borderWrap()
+        {
+            Mat mat = this.bitmap.ToMat();
+
+            mat = mat.CopyMakeBorder(25, 25, 25, 25, OpenCvSharp.BorderTypes.Wrap);
+
+            this.bitmap = mat.ToBitmap();
+
+        }
+
 
     }
 }
