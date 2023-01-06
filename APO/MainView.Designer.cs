@@ -92,6 +92,12 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.borderReflectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borderWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.morphologyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.erodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dilateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,7 +112,8 @@
             this.toolStripButton1,
             this.toolStripDropDownButton2,
             this.toolStripDropDownButton3,
-            this.toolStripDropDownButton4});
+            this.toolStripDropDownButton4,
+            this.toolStripButton2});
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
@@ -371,7 +378,8 @@
             this.edgeDetectionToolStripMenuItem,
             this.edgeSobelToolStripMenuItem,
             this.medianToolStripMenuItem,
-            this.borderToolStripMenuItem});
+            this.borderToolStripMenuItem,
+            this.morphologyToolStripMenuItem});
             resources.ApplyResources(this.toolStripDropDownButton4, "toolStripDropDownButton4");
             this.toolStripDropDownButton4.Name = "toolStripDropDownButton4";
             // 
@@ -579,6 +587,47 @@
             resources.ApplyResources(this.borderWrapToolStripMenuItem, "borderWrapToolStripMenuItem");
             this.borderWrapToolStripMenuItem.Click += new System.EventHandler(this.borderWrapToolStripMenuItem_Click);
             // 
+            // morphologyToolStripMenuItem
+            // 
+            this.morphologyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.erodeToolStripMenuItem,
+            this.dilateToolStripMenuItem,
+            this.openToolStripMenuItem,
+            this.closeToolStripMenuItem});
+            this.morphologyToolStripMenuItem.Name = "morphologyToolStripMenuItem";
+            resources.ApplyResources(this.morphologyToolStripMenuItem, "morphologyToolStripMenuItem");
+            // 
+            // erodeToolStripMenuItem
+            // 
+            this.erodeToolStripMenuItem.Name = "erodeToolStripMenuItem";
+            resources.ApplyResources(this.erodeToolStripMenuItem, "erodeToolStripMenuItem");
+            this.erodeToolStripMenuItem.Click += new System.EventHandler(this.erodeToolStripMenuItem_Click);
+            // 
+            // dilateToolStripMenuItem
+            // 
+            this.dilateToolStripMenuItem.Name = "dilateToolStripMenuItem";
+            resources.ApplyResources(this.dilateToolStripMenuItem, "dilateToolStripMenuItem");
+            this.dilateToolStripMenuItem.Click += new System.EventHandler(this.dilateToolStripMenuItem_Click);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            resources.ApplyResources(this.openToolStripMenuItem, "openToolStripMenuItem");
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            resources.ApplyResources(this.closeToolStripMenuItem, "closeToolStripMenuItem");
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.toolStripButton2, "toolStripButton2");
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
             // MainView
             // 
             resources.ApplyResources(this, "$this");
@@ -664,6 +713,12 @@
         private System.Windows.Forms.ToolStripMenuItem borderWrapToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem otsuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adaptiveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem morphologyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem erodeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dilateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
     }
 }
 

@@ -11,11 +11,21 @@ using OpenCvSharp;
 //using Emgu.CV.Structure;
 using OpenCvSharp.Extensions;
 using System.Deployment.Application;
+using Emgu.CV.CvEnum;
+using Emgu.CV;
+using Mat = OpenCvSharp.Mat;
+using Emgu.CV.Structure;
+using Moments = OpenCvSharp.Moments;
+using Point = OpenCvSharp.Point;
+using System.Xml.Linq;
 //using Emgu.CV;
 //using Emgu;
 //using Emgu.CV.Structure;
 //using Emgu.CV;
 //using Mat = OpenCvSharp.Mat;
+using System.IO;
+using System.Text;
+
 
 namespace APO {
     public class ImageService {
@@ -1260,7 +1270,130 @@ namespace APO {
             this.bitmap = mat.ToBitmap();
 
         }
+        
+        public void morphErode(){
+            Mat kernel = OpenCvSharp.Cv2.GetStructuringElement(MorphShapes.Cross, new OpenCvSharp.Size(3, 3));
 
+            Mat mat = this.bitmap.ToMat();
+
+            mat = mat.Erode(kernel, iterations: 5);
+
+            this.bitmap = mat.ToBitmap();
+        }
+
+        public void morphDilate(){
+            Mat kernel = OpenCvSharp.Cv2.GetStructuringElement(MorphShapes.Cross, new OpenCvSharp.Size(3, 3));
+
+            Mat mat = this.bitmap.ToMat();
+
+            mat = mat.Dilate(kernel, iterations: 5);
+
+            this.bitmap = mat.ToBitmap();
+        }
+
+        public void morphOpen(){
+            Mat kernel = OpenCvSharp.Cv2.GetStructuringElement(MorphShapes.Cross, new OpenCvSharp.Size(3, 3));
+
+            Mat mat = this.bitmap.ToMat();
+
+            mat = mat.MorphologyEx(MorphTypes.Open, kernel, iterations: 5);
+
+            this.bitmap = mat.ToBitmap();
+        }
+
+        public void morphClose(){
+            Mat kernel = OpenCvSharp.Cv2.GetStructuringElement(MorphShapes.Cross, new OpenCvSharp.Size(3, 3));
+
+            Mat mat = this.bitmap.ToMat();
+
+            mat = mat.MorphologyEx(MorphTypes.Close, kernel, iterations: 5);
+
+            this.bitmap = mat.ToBitmap();
+        }
+
+        public void saveMomentsData()
+        {
+            Mat mat = this.bitmap.ToMat();
+
+            if (mat.Channels() != 1)
+            {
+                OpenCvSharp.Cv2.CvtColor(mat, mat, ColorConversionCodes.BGR2GRAY);
+            }
+
+            Cv2.Threshold(mat, mat, 100, 255, ThresholdTypes.Binary);
+
+            Moments moments = Cv2.Moments(mat, true);
+
+            OpenCvSharp.Point[][] contours;
+            OpenCvSharp.HierarchyIndex[] hierarchy;
+
+            Cv2.FindContours(mat, out contours, out hierarchy, RetrievalModes.List, ContourApproximationModes.ApproxSimple);
+
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            String file = path + "\\Output.csv";
+
+            String separator = ",";
+            StringBuilder output = new StringBuilder();
+
+            String[] headings = { "Area", "Circumference", "Aspect Ratio", "Extent", "Solidity", "Equivalent Diameter",
+            "M00", "M01", "M02", "M03", "M10", "M11", "M12", "M20", "M21", "M30", "Mu02", "Mu03","Mu11","Mu12", "Mu20", "Mu21", "Mu30", "Nu02", "Nuo3", "Nu11", "Nu12", "Nu20", "Nu21", "Nu30"};
+            output.AppendLine(string.Join(separator, headings));
+
+            foreach (Point[] contour in contours)
+            {
+                Moments currentMoments = Cv2.Moments(contour, true);
+
+                // #1
+                double area = Cv2.ContourArea(contour);
+
+                Rect rect =  Cv2.BoundingRect(contour);
+
+                double arcLength = OpenCvSharp.Cv2.ArcLength(contour, true);
+
+
+                // #2
+                float aspectRatio = ((float)rect.Width) / rect.Height;
+
+                float rectArea = rect.Width * rect.Height;
+                // #3 
+                float  extent = rectArea / rectArea;
+
+
+                Point[] hull = Cv2.ConvexHull(contour);
+
+                double hull_area = Cv2.ContourArea(hull);
+                // #4 
+                double solidity = area / hull_area;
+
+                // #5
+                double equi_diameter = Math.Sqrt(4 * area / Math.PI);
+
+                
+                String[] newLine = { area.ToString(), arcLength.ToString(), aspectRatio.ToString(), extent.ToString(), solidity.ToString(), equi_diameter.ToString(),
+                currentMoments.M00.ToString(), currentMoments.M01.ToString(), currentMoments.M02.ToString(), currentMoments.M03.ToString(),
+                currentMoments.M10.ToString(), currentMoments.M11.ToString(), currentMoments.M12.ToString(),
+                currentMoments.M20.ToString(), currentMoments.M21.ToString(),
+                currentMoments.M30.ToString(), currentMoments.Mu02.ToString(), currentMoments.Mu03.ToString(), currentMoments.Mu11.ToString(), currentMoments.Mu12.ToString(), currentMoments.Mu20.ToString(),
+                currentMoments.Mu21.ToString(), currentMoments.Mu30.ToString(), currentMoments.Mu30.ToString(),
+                currentMoments.Nu02.ToString(), currentMoments.Nu03.ToString(), currentMoments.Nu11.ToString(), currentMoments.Nu12.ToString(), currentMoments.Nu20.ToString(), currentMoments.Nu21.ToString(), currentMoments.Nu30.ToString()
+                };
+                output.AppendLine(string.Join(separator, newLine));
+            
+            
+            }
+            try
+            {
+                File.AppendAllText(file, output.ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Data could not be written to the CSV file.");
+                return;
+            }
+
+
+            this.bitmap = mat.ToBitmap();
+        }
 
     }
 }
